@@ -1,8 +1,4 @@
-/*
- * A classe Exposição conta com varios atributos alguns deles associados
- * a outras classes. Esta classe representa na sua essencia o negócio,
- * pois este sistema trata-se sobre gestão de exposições.
- */
+
 package lapr.project.model;
 
 import java.util.ArrayList;
@@ -10,7 +6,10 @@ import java.util.Date;
 import java.util.List;
 
 /**
- *
+ * A classe Exposição conta com varios atributos alguns deles associados
+ * a outras classes. Esta classe representa na sua essencia o negócio,
+ * pois este sistema trata-se sobre gestão de exposições.
+ * 
  * @author AlexandraFerreira 1140388
  */
 public class Exposicao {
