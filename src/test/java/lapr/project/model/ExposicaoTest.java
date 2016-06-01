@@ -8,6 +8,7 @@ package lapr.project.model;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import lapr.project.date.Data;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -73,9 +74,10 @@ public class ExposicaoTest {
     public void testGetDataInicio() {
         System.out.println("getDataInicio");
         Exposicao instance = new Exposicao();
-        Date expResult = new Date(12-12-1212);
-        instance.setDataInicio(expResult);
-        Date result = instance.getDataInicio();
+        Data dataTeste = new Data(1212, 12, 12);
+        instance.setDataInicio(dataTeste);
+        Data expResult = new Data(1212, 12, 12);
+        Data result = instance.getDataInicio();
         assertEquals(expResult, result);
     }
 
@@ -86,9 +88,10 @@ public class ExposicaoTest {
     public void testGetDataFim() {
         System.out.println("getDataFim");
         Exposicao instance = new Exposicao();
-        Date expResult = new Date(12-12-1212);
-        instance.setDataFim(expResult);
-        Date result = instance.getDataFim();
+        Data dataTeste = new Data(1212, 12, 12);
+        instance.setDataFim(dataTeste);
+        Data expResult = new Data(1212, 12, 12);
+        Data result = instance.getDataFim();
         assertEquals(expResult, result);
     }
     
@@ -99,9 +102,10 @@ public class ExposicaoTest {
     public void testGetSubInicio() {
         System.out.println("getSubInicio");
         Exposicao instance = new Exposicao();
-        Date expResult = new Date(12-12-1212);
-        instance.setDataSubInicio(expResult);
-        Date result = instance.getSubInicio();
+        Data dataTeste = new Data(1212, 12, 12);
+        instance.setDataSubInicio(dataTeste);
+        Data expResult = new Data(1212, 12, 12);
+        Data result = instance.getSubInicio();
         assertEquals(expResult, result);
     }
 
@@ -112,8 +116,10 @@ public class ExposicaoTest {
     public void testGetSubFim() {
         System.out.println("getSubFim");
         Exposicao instance = new Exposicao();
-        Date expResult = new Date(12-12-1212);
-        Date result = instance.getSubFim();
+        Data dataTeste = new Data(1212, 12, 12);
+        instance.setDataSubFim(dataTeste);
+        Data expResult = new Data(1212, 12, 12);
+        Data result = instance.getSubFim();
         assertEquals(expResult, result);
     }
 
@@ -178,11 +184,11 @@ public class ExposicaoTest {
     @Test
     public void testSetDataInicio() {
         System.out.println("setDataInicio");
-        Date dtInicio = new Date(12-12-1212);
+        Data dtInicio = new Data(1212, 12, 12);
         Exposicao instance = new Exposicao();
         instance.setDataInicio(dtInicio);
-        Date expResult = new Date(12-12-1212);
-        Date result = instance.getDataInicio();
+        Data expResult = new Data(1212, 12, 12);
+        Data result = instance.getDataInicio();
         assertEquals(expResult, result);
     }
     
@@ -192,11 +198,11 @@ public class ExposicaoTest {
     @Test
     public void testSetDataFim() {
         System.out.println("setDataFim");
-        Date dtFim = new Date(12-12-1212);
+        Data dtFim = new Data(1212, 12, 12);
         Exposicao instance = new Exposicao();
         instance.setDataFim(dtFim);
-        Date expResult = new Date(12-12-1212);
-        Date result = instance.getDataFim();
+        Data expResult = new Data(1212, 12, 12);
+        Data result = instance.getDataFim();
         assertEquals(expResult, result);
     }
     
@@ -206,11 +212,12 @@ public class ExposicaoTest {
     @Test
     public void testSetDataSubInicio() {
         System.out.println("setDataSubInicio");
-        Date subInicio = null;
+        Data subInicio = new Data(1212, 12, 12);
         Exposicao instance = new Exposicao();
         instance.setDataSubInicio(subInicio);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Data expResult = new Data(1212, 12, 12);
+        Data result = instance.getSubInicio();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -219,11 +226,12 @@ public class ExposicaoTest {
     @Test
     public void testSetDataSubFim() {
         System.out.println("setDataSubFim");
-        Date subFim = null;
+        Data subFim = new Data(1212, 12, 12);
         Exposicao instance = new Exposicao();
         instance.setDataSubFim(subFim);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Data expResult = new Data(1212, 12, 12);
+        Data result = instance.getSubFim();
+        assertEquals(expResult, result);
     }
     
     /**
@@ -232,12 +240,18 @@ public class ExposicaoTest {
     @Test
     public void testSetPeriodoRealizacao() {
         System.out.println("setPeriodoRealizacao");
-        Date dtInicio = null;
-        Date dtFim = null;
+        Data dtInicio = new Data(1212, 12, 12);
+        Data dtFim = new Data(1313, 12, 13);
         Exposicao instance = new Exposicao();
         instance.setPeriodoRealizacao(dtInicio, dtFim);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        Data expResult = new Data(1212, 12, 12);
+        Data expResult1 = new Data(1313, 12, 13);
+        Data result = instance.getDataInicio();
+        Data result1 = instance.getDataFim();
+        
+        assertEquals(expResult, result);
+        assertEquals(expResult1, result1);
     }
     
     /**
@@ -246,12 +260,18 @@ public class ExposicaoTest {
     @Test
     public void testSetPeriodoSubmissao() {
         System.out.println("setPeriodoSubmissao");
-        Date subInicio = null;
-        Date subFim = null;
+        Data subInicio = new Data(1212, 12, 12);
+        Data subFim = new Data(1313, 12, 13);
         Exposicao instance = new Exposicao();
         instance.setPeriodoSubmissao(subInicio, subFim);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        Data expResult = new Data(1212, 12, 12);
+        Data expResult1 = new Data(1313, 12, 13);
+        Data result = instance.getSubInicio();
+        Data result1 = instance.getSubFim();
+        
+        assertEquals(expResult, result);
+        assertEquals(expResult1, result1);
     }
 
     /**
@@ -277,10 +297,10 @@ public class ExposicaoTest {
         Exposicao instance = new Exposicao();
         instance.setTitulo("Exponor");
         instance.setDescritivo("Isto e o descritivo da exposicao");
-        instance.setPeriodoRealizacao(new Date(12,12,1212), new Date(12,12,1212));
+        instance.setPeriodoRealizacao(new Data(1212, 12, 12), new Data(1313, 12, 13));
         instance.setLocal("Porto");
         String expResult = "Título: Exponor; Texto Descritivo: Isto e o descritivo da exposicao; "
-                + "Data de Início: 12-12-1212; Data de Fim: 12-12-1212; Local: Porto.\nOrganizadores:\n";
+                + "Data de Início: 12-12-1212; Data de Fim: 13-12-1313; Local: Porto.\nOrganizadores:\n";
         String result = instance.toString();
         assertEquals(expResult, result);
     } 
@@ -291,12 +311,16 @@ public class ExposicaoTest {
     @Test
     public void testEquals() {
         System.out.println("equals");
-        Object outroObjeto = null;
+        Object outroObjeto = new Exposicao("titulo", "descritivo", new Data(1212, 12, 12), 
+                new Data(1212, 12, 13), "local");
         Exposicao instance = new Exposicao();
-        boolean expResult = false;
+        instance.setTitulo("titulo");
+        instance.setDescritivo("descritivo");
+        instance.setDataInicio(new Data(1212, 12, 12));
+        instance.setDataFim(new Data(1212, 12, 13));
+        instance.setLocal("local");
+        boolean expResult = true;
         boolean result = instance.equals(outroObjeto);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 }

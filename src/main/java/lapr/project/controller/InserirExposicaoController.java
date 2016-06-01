@@ -3,6 +3,7 @@ package lapr.project.controller;
 
 import java.util.Date;
 import java.util.List;
+import lapr.project.date.Data;
 import lapr.project.model.CentroExposicoes;
 import lapr.project.model.Exposicao;
 import lapr.project.model.RegistoUtilizadores;
@@ -55,12 +56,12 @@ public class InserirExposicaoController {
      * @param descritivo o descritivo da exposição
      * @param dataInicio a data de início da exposição
      * @param dataFim a data de fim da exposição
-     * @param subInicio
-     * @param subFim
+     * @param subInicio a data de início de submissão da exposição 
+     * @param subFim a data de fim de submissão da exposição
      * @param local o local da exposição
      */
-    public void setDados(String titulo, String descritivo, Date dataInicio, Date dataFim,
-            Date subInicio, Date subFim, String local) {
+    public void setDados(String titulo, String descritivo, Data dataInicio, Data dataFim,
+            Data subInicio, Data subFim, String local) {
         this.exposicao.setTitulo(titulo);
         this.exposicao.setDescritivo(descritivo);
         this.exposicao.setPeriodoRealizacao(dataInicio, dataFim);
@@ -74,6 +75,7 @@ public class InserirExposicaoController {
      * exposição), quais os utilizadores do sistema que podem ser indicados como
      * organizadores da exposição.
      *
+     * @param userId o username ou email do utilizador 
      * @return a lista de utilizadores do centro de exposições
      */
     public Utilizador getUtilizador(String userId) {

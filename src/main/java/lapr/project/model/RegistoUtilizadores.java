@@ -9,13 +9,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Esta classe trata do registo dos utilizadores.
+ * 
  * @author AlexandraFerreira 1140388
  */
 public class RegistoUtilizadores {
     
+    /**
+     * Lista de Utilizadores do sistema
+     */
     List<Utilizador> listaUtilizadores;
   
+    /**
+     * Constrói uma instância de RegistoUtilizadores sem parâmetros.
+     */
     public RegistoUtilizadores(){
         listaUtilizadores = new ArrayList<>();
     }

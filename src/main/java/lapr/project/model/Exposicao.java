@@ -1,9 +1,7 @@
 
 package lapr.project.model;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import lapr.project.date.Data;
 
 /**
  * A classe Exposição conta com varios atributos alguns deles associados
@@ -27,22 +25,22 @@ public class Exposicao {
     /**
      * A data de início da Exposição.
      */
-    private Date dataInicio;
+    private Data dataInicio;
 
     /**
      * A data de fim da Exposição.
      */
-    private Date dataFim;
+    private Data dataFim;
     
     /**
      * A data de submissão de início da Exposição.
      */
-    private Date subInicio;
+    private Data subInicio;
 
     /**
      * A data de submissão de fim da Exposição.
      */
-    private Date subFim;
+    private Data subFim;
 
     /**
      * O local da realização da Exposição.
@@ -67,22 +65,22 @@ public class Exposicao {
     /**
      * A data de início da Exposição por omissão.
      */
-    private static final Date DATA_INICIO_POR_OMISSAO = new Date(System.currentTimeMillis());
+    private static final Data DATA_INICIO_POR_OMISSAO = Data.dataAtual();
 
     /**
      * A data de fim da Exposição por omissão.
      */
-    private static final Date DATA_FIM_OMISSAO = new Date(System.currentTimeMillis());
+    private static final Data DATA_FIM_OMISSAO = Data.dataAtual();
     
     /**
      * A data de submissão de início da Exposição por omissão.
      */
-    private static final Date DATA_SUBMISSAO_INICIO_POR_OMISSAO = new Date(System.currentTimeMillis());
+    private static final Data DATA_SUBMISSAO_INICIO_POR_OMISSAO = Data.dataAtual();
 
     /**
      * A data de submissão de fim da Exposição por omissão.
      */
-    private static final Date DATA_SUBMISSAO_FIM_OMISSAO = new Date(System.currentTimeMillis());
+    private static final Data DATA_SUBMISSAO_FIM_OMISSAO = Data.dataAtual();
 
     /**
      * O local da realização da Exposição por omissão.
@@ -96,6 +94,7 @@ public class Exposicao {
         setTitulo(TITULO_POR_OMISSAO);
         setDescritivo(DESCRITIVO_POR_OMISSAO);
         setPeriodoRealizacao(DATA_INICIO_POR_OMISSAO, DATA_FIM_OMISSAO);
+        setPeriodoSubmissao(DATA_SUBMISSAO_INICIO_POR_OMISSAO, DATA_SUBMISSAO_FIM_OMISSAO);
         setLocal(LOCAL_POR_OMISSAO);
     }
 
@@ -109,7 +108,7 @@ public class Exposicao {
      * @param dataFim a data de fim da Exposição
      * @param local o local da realização da Exposição
      */
-    public Exposicao(String titulo, String text_descritivo, Date dataInicio, Date dataFim, String local) {
+    public Exposicao(String titulo, String text_descritivo, Data dataInicio, Data dataFim, String local) {
         setTitulo(titulo);
         setDescritivo(text_descritivo);
         setDataInicio(dataInicio);
@@ -140,7 +139,7 @@ public class Exposicao {
      *
      * @return a data de início da Exposição
      */
-    public Date getDataInicio() {
+    public Data getDataInicio() {
         return dataInicio;
     }
 
@@ -149,7 +148,7 @@ public class Exposicao {
      *
      * @return a data de fim da Exposição
      */
-    public Date getDataFim() {
+    public Data getDataFim() {
         return dataFim;
     }
 
@@ -158,7 +157,7 @@ public class Exposicao {
      *
      * @return a data de submissão de início da Exposição
      */
-    public Date getSubInicio() {
+    public Data getSubInicio() {
         return subInicio;
     }
 
@@ -167,7 +166,7 @@ public class Exposicao {
      *
      * @return a data de submissão de fim da Exposição
      */
-    public Date getSubFim() {
+    public Data getSubFim() {
         return subFim;
     }
 
@@ -218,7 +217,7 @@ public class Exposicao {
      *
      * @param dtInicio a nova data de início da Exposição
      */
-    public final void setDataInicio(Date dtInicio) {
+    public final void setDataInicio(Data dtInicio) {
         if (dtInicio == null) {
             throw new IllegalArgumentException("ERRO: Data de início é inválida!");
         }
@@ -230,7 +229,7 @@ public class Exposicao {
      *
      * @param dtFim a nova data de fim da Exposição
      */
-    public final void setDataFim(Date dtFim) {
+    public final void setDataFim(Data dtFim) {
         if (dtFim == null) {
             throw new IllegalArgumentException("ERRO: Data de fim é inválida!");
         }
@@ -244,7 +243,7 @@ public class Exposicao {
      * @param dtInicio a nova data de início da Exposição
      * @param dtFim a nova data de fim da Exposição
      */
-    public final void setPeriodoRealizacao(Date dtInicio, Date dtFim) {
+    public final void setPeriodoRealizacao(Data dtInicio, Data dtFim) {
         this.setDataInicio(dtInicio);
         this.setDataFim(dtFim);
     }
@@ -254,7 +253,7 @@ public class Exposicao {
      *
      * @param subInicio a nova data de submissão de início da Exposição
      */
-    public final void setDataSubInicio(Date subInicio) {
+    public final void setDataSubInicio(Data subInicio) {
         if (subInicio == null) {
             throw new IllegalArgumentException("ERRO: Data de início é inválida!");
         }
@@ -266,7 +265,7 @@ public class Exposicao {
      *
      * @param subFim a nova data  de fim da Exposição
      */
-    public final void setDataSubFim(Date subFim) {
+    public final void setDataSubFim(Data subFim) {
         if (subFim == null) {
             throw new IllegalArgumentException("ERRO: Data de fim é inválida!");
         }
@@ -280,7 +279,7 @@ public class Exposicao {
      * @param subInicio a nova data de submissão de início da Exposição
      * @param subFim a nova data de submissão de fim da Exposição
      */
-    public final void setPeriodoSubmissao(Date subInicio, Date subFim) {
+    public final void setPeriodoSubmissao(Data subInicio, Data subFim) {
         this.setDataSubInicio(subInicio);
         this.setDataSubFim(subFim);
     }
@@ -307,10 +306,8 @@ public class Exposicao {
         String sTxt;
         sTxt = String.format("Título: %s; Texto Descritivo: %s; Data de Início: %s;"
                 + " Data de Fim: %s; Local: %s.\nOrganizadores:\n",
-                this.titulo, this.text_descritivo,
-                lapr.project.utils.Utils.mostrarDataFormato_DIA_MES_ANO(this.dataInicio),
-                lapr.project.utils.Utils.mostrarDataFormato_DIA_MES_ANO(this.dataFim),
-                this.local);
+                this.titulo, this.text_descritivo, this.dataInicio.toDiaMesAnoString(),
+                this.dataFim.toDiaMesAnoString(), this.local);
 
         for (Organizador org : this.lista_Organizadores) {
             sTxt += String.format("%s \n", org.toString());
