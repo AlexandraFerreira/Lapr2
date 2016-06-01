@@ -6,6 +6,7 @@
 package lapr.project.model;
 
 /**
+ * Esta classe tem como finalidade a construcao de objetos do tipo FAE.
  *
  * @author Cristiano Melo
  */
