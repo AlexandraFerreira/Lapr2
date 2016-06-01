@@ -115,6 +115,30 @@ public class Exposicao {
         setDataFim(dataFim);
         setLocal(local);      
     }
+    
+    /**
+     * Constrói uma instância de Exposição recebendo o título, o texto
+     * descritivo, a data de início, a data de fim, a data de início de 
+     * submissão, a data de fim de submissão e o local por parâmetro.
+     *
+     * @param titulo o título da Exposição
+     * @param text_descritivo o texto descritivo sobre o âmbito da Exposição
+     * @param dataInicio a data de início da Exposição
+     * @param dataFim a data de fim da Exposição
+     * @param subInicio a data de início de submissão da Exposição
+     * @param subFim a data de fim de submissão da Exposição
+     * @param local o local da realização da Exposição
+     */
+    public Exposicao(String titulo, String text_descritivo, Data dataInicio, Data dataFim,
+            Data subInicio, Data subFim, String local) {
+        setTitulo(titulo);
+        setDescritivo(text_descritivo);
+        setDataInicio(dataInicio);
+        setDataFim(dataFim);
+        setDataSubInicio(subInicio);
+        setDataSubFim(subFim);
+        setLocal(local);      
+    }
 
     /**
      * Devolve o título da Exposição.
