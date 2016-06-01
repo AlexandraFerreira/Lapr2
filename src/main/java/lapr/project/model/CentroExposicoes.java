@@ -28,15 +28,6 @@ public class CentroExposicoes {
     }
 
     /**
-     * Método que permite ir buscar a lista de exposicoes
-     *
-     * @return m_registaExposicoes - lista de exposições
-     */
-    public List<Exposicao> buscarListaExposicoes() {
-        return m_registaExposicao;
-    }
-
-    /**
      * Método que devolve uma exposição da lista
      *
      * @return uma exposição
@@ -58,10 +49,24 @@ public class CentroExposicoes {
     /**
      * Métod que permite devolver a lista de demonstracoes
      *
-     * @return a lista de demonstrações 
+     * @return a lista de demonstrações
      */
-    public List<Object> buscarListaDemonstracoes() {
+    public List<Object> getListaDemonstracoes() {
         List<Object> a = new ArrayList<>();
         return a;
+    }
+
+    /**
+     * @return the m_registaExposicao
+     */
+    public List<Exposicao> getM_registaExposicao() {
+        return m_registaExposicao;
+    }
+
+    /**
+     * @param m_registaExposicao the m_registaExposicao to set
+     */
+    public void setM_registaExposicao(List<Exposicao> m_registaExposicao) {
+        this.m_registaExposicao = m_registaExposicao;
     }
 }
