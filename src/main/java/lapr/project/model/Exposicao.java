@@ -1,9 +1,7 @@
 
 package lapr.project.model;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import lapr.project.date.Data;
 
 /**
  * A classe Exposição conta com varios atributos alguns deles associados
@@ -27,23 +25,32 @@ public class Exposicao {
     /**
      * A data de início da Exposição.
      */
-    private Date dataInicio;
+    private Data dataInicio;
 
     /**
      * A data de fim da Exposição.
      */
-    private Date dataFim;
+    private Data dataFim;
+    
+    /**
+     * A data de submissão de início da Exposição.
+     */
+    private Data subInicio;
+
+    /**
+     * A data de submissão de fim da Exposição.
+     */
+    private Data subFim;
 
     /**
      * O local da realização da Exposição.
      */
     private String local;
-
+    
     /**
-     * O conjunto de pessoas responsáveis (organizadores) pela realização da
-     * Exposição.
+     * A lista de pessoas responsáveis pela realização da Exposição.
      */
-    private final List<Organizador> lista_Organizadores;
+    ListaOrganizadores lista_Organizadores;
 
     /**
      * O título da Exposição por omissão.
@@ -58,12 +65,22 @@ public class Exposicao {
     /**
      * A data de início da Exposição por omissão.
      */
-    private static final Date DATA_INICIO_POR_OMISSAO = new Date(System.currentTimeMillis());
+    private static final Data DATA_INICIO_POR_OMISSAO = Data.dataAtual();
 
     /**
      * A data de fim da Exposição por omissão.
      */
-    private static final Date DATA_FIM_OMISSAO = new Date(System.currentTimeMillis());
+    private static final Data DATA_FIM_OMISSAO = Data.dataAtual();
+    
+    /**
+     * A data de submissão de início da Exposição por omissão.
+     */
+    private static final Data DATA_SUBMISSAO_INICIO_POR_OMISSAO = Data.dataAtual();
+
+    /**
+     * A data de submissão de fim da Exposição por omissão.
+     */
+    private static final Data DATA_SUBMISSAO_FIM_OMISSAO = Data.dataAtual();
 
     /**
      * O local da realização da Exposição por omissão.
@@ -76,9 +93,9 @@ public class Exposicao {
     public Exposicao() {
         setTitulo(TITULO_POR_OMISSAO);
         setDescritivo(DESCRITIVO_POR_OMISSAO);
-        setPeriodo(DATA_INICIO_POR_OMISSAO, DATA_FIM_OMISSAO);
+        setPeriodoRealizacao(DATA_INICIO_POR_OMISSAO, DATA_FIM_OMISSAO);
+        setPeriodoSubmissao(DATA_SUBMISSAO_INICIO_POR_OMISSAO, DATA_SUBMISSAO_FIM_OMISSAO);
         setLocal(LOCAL_POR_OMISSAO);
-        this.lista_Organizadores = new ArrayList<>();
     }
 
     /**
@@ -91,38 +108,36 @@ public class Exposicao {
      * @param dataFim a data de fim da Exposição
      * @param local o local da realização da Exposição
      */
-    public Exposicao(String titulo, String text_descritivo, Date dataInicio, Date dataFim, String local) {
+    public Exposicao(String titulo, String text_descritivo, Data dataInicio, Data dataFim, String local) {
         setTitulo(titulo);
         setDescritivo(text_descritivo);
         setDataInicio(dataInicio);
         setDataFim(dataFim);
-        setLocal(local);
-        this.lista_Organizadores = new ArrayList<>();       
+        setLocal(local);      
     }
-
+    
     /**
      * Constrói uma instância de Exposição recebendo o título, o texto
-     * descritivo, a data de início, a data de fim, o local e a lista de
-     * organizadores. Estes são os dados necessários para que o gestor de
-     * exposições crie com sucesso uma nova exposição, de forma a que possa
-     * ficar registada no sistema.
+     * descritivo, a data de início, a data de fim, a data de início de 
+     * submissão, a data de fim de submissão e o local por parâmetro.
      *
      * @param titulo o título da Exposição
      * @param text_descritivo o texto descritivo sobre o âmbito da Exposição
-     * @param dtInicio a data de início da Exposição
-     * @param dtFim a data de fim da Exposição
+     * @param dataInicio a data de início da Exposição
+     * @param dataFim a data de fim da Exposição
+     * @param subInicio a data de início de submissão da Exposição
+     * @param subFim a data de fim de submissão da Exposição
      * @param local o local da realização da Exposição
-     * @param lista_organizadores o conjunto de pessoas responsáveis pela
-     * realização da Exposição
      */
-    public Exposicao(String titulo, String text_descritivo, Date dtInicio, Date dtFim,
-            String local, List<Organizador> lista_organizadores) {
-        this.titulo = titulo;
-        this.text_descritivo = text_descritivo;
-        this.dataInicio = dtInicio;
-        this.dataFim = dtFim;
-        this.local = local;
-        this.lista_Organizadores = new ArrayList<>(lista_organizadores);
+    public Exposicao(String titulo, String text_descritivo, Data dataInicio, Data dataFim,
+            Data subInicio, Data subFim, String local) {
+        setTitulo(titulo);
+        setDescritivo(text_descritivo);
+        setDataInicio(dataInicio);
+        setDataFim(dataFim);
+        setDataSubInicio(subInicio);
+        setDataSubFim(subFim);
+        setLocal(local);      
     }
 
     /**
@@ -148,7 +163,7 @@ public class Exposicao {
      *
      * @return a data de início da Exposição
      */
-    public Date getDataInicio() {
+    public Data getDataInicio() {
         return dataInicio;
     }
 
@@ -157,8 +172,26 @@ public class Exposicao {
      *
      * @return a data de fim da Exposição
      */
-    public Date getDataFim() {
+    public Data getDataFim() {
         return dataFim;
+    }
+
+    /**
+     * Devolve a data de submissão de início da Exposição.
+     *
+     * @return a data de submissão de início da Exposição
+     */
+    public Data getSubInicio() {
+        return subInicio;
+    }
+
+    /**
+     * Devolve a data de submissão de fim da Exposição.
+     *
+     * @return a data de submissão de fim da Exposição
+     */
+    public Data getSubFim() {
+        return subFim;
     }
 
     /**
@@ -175,7 +208,7 @@ public class Exposicao {
      *
      * @return a lista de organizadores da Exposição
      */
-    public List<Organizador> getListaOrganizadores() {
+    public ListaOrganizadores getListaOrganizadores() {
         return lista_Organizadores;
     }
 
@@ -202,6 +235,30 @@ public class Exposicao {
         }
         this.text_descritivo = text_descritivo;
     }
+    
+    /**
+     * Modifica a data de início da Exposição.
+     *
+     * @param dtInicio a nova data de início da Exposição
+     */
+    public final void setDataInicio(Data dtInicio) {
+        if (dtInicio == null) {
+            throw new IllegalArgumentException("ERRO: Data de início é inválida!");
+        }
+        this.dataInicio = dtInicio;
+    }
+    
+    /**
+     * Modifica a data de fim da Exposição.
+     *
+     * @param dtFim a nova data de fim da Exposição
+     */
+    public final void setDataFim(Data dtFim) {
+        if (dtFim == null) {
+            throw new IllegalArgumentException("ERRO: Data de fim é inválida!");
+        }
+        this.dataFim = dtFim;
+    }
 
     /**
      * Modifica o período da Exposição recebendo por parâmetro a data de início
@@ -210,33 +267,45 @@ public class Exposicao {
      * @param dtInicio a nova data de início da Exposição
      * @param dtFim a nova data de fim da Exposição
      */
-    public final void setPeriodo(Date dtInicio, Date dtFim) {
+    public final void setPeriodoRealizacao(Data dtInicio, Data dtFim) {
         this.setDataInicio(dtInicio);
         this.setDataFim(dtFim);
     }
 
     /**
-     * Modifica a data de início da Exposição.
+     * Modifica a data de submissão de início da Exposição.
      *
-     * @param dtInicio a nova data de início da Exposição
+     * @param subInicio a nova data de submissão de início da Exposição
      */
-    public final void setDataInicio(Date dtInicio) {
-        if (dtInicio == null) {
+    public final void setDataSubInicio(Data subInicio) {
+        if (subInicio == null) {
             throw new IllegalArgumentException("ERRO: Data de início é inválida!");
         }
-        this.dataInicio = dtInicio;
+        this.subInicio = subInicio;
     }
-
+    
     /**
-     * Modifica a data de fim da Exposição.
+     * Modifica a data de submissão de fim da Exposição.
      *
-     * @param dtFim a nova data de fim da Exposição
+     * @param subFim a nova data  de fim da Exposição
      */
-    public final void setDataFim(Date dtFim) {
-        if (dtFim == null) {
+    public final void setDataSubFim(Data subFim) {
+        if (subFim == null) {
             throw new IllegalArgumentException("ERRO: Data de fim é inválida!");
         }
-        this.dataFim = dtFim;
+        this.subFim = subFim;
+    }
+    
+    /**
+     * Modifica o período de submissão da Exposição recebendo por parâmetro a data de início
+     * e a data de fim.
+     *
+     * @param subInicio a nova data de submissão de início da Exposição
+     * @param subFim a nova data de submissão de fim da Exposição
+     */
+    public final void setPeriodoSubmissao(Data subInicio, Data subFim) {
+        this.setDataSubInicio(subInicio);
+        this.setDataSubFim(subFim);
     }
 
     /**
@@ -261,16 +330,26 @@ public class Exposicao {
         String sTxt;
         sTxt = String.format("Título: %s; Texto Descritivo: %s; Data de Início: %s;"
                 + " Data de Fim: %s; Local: %s.\nOrganizadores:\n",
-                this.titulo, this.text_descritivo,
-                lapr.project.utils.Utils.mostrarDataFormato_DIA_MES_ANO(this.dataInicio),
-                lapr.project.utils.Utils.mostrarDataFormato_DIA_MES_ANO(this.dataFim),
-                this.local);
+                this.titulo, this.text_descritivo, this.dataInicio.toDiaMesAnoString(),
+                this.dataFim.toDiaMesAnoString(), this.local);
 
         for (Organizador org : this.lista_Organizadores) {
             sTxt += String.format("%s \n", org.toString());
         }
 
         return sTxt;
+    }
+    
+    /**
+     * Método que valida a Exposição.
+     *
+     * @return true se o objeto recebido for válido. Caso contrário, retorna
+     * false.
+     */
+    public boolean valida() {
+        this.lista_Organizadores =  new ListaOrganizadores();
+
+        return lista_Organizadores.valida();
     }
 
     /**

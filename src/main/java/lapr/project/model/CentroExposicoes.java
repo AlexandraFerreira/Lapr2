@@ -10,30 +10,46 @@ import java.util.List;
 import java.lang.Object;
 
 /**
- *
+ * Esta classe é responsável por guardar e gerir todas as funcionalidades da aplicação,
+ * uma vez que é a classe que representa a empresa.
  * @author Fábio Sousa
  */
 public class CentroExposicoes {
 
     /**
-     * variável lista de exposicões
+     * Registo de exposições da empresa.
      */
-    private List<Exposicao> m_registaExposicao;
+    private RegistoExposicoes m_registaExposicao;
+    
+    /**
+     * Registo de utilizadores da empresa.
+     */
+    private RegistoUtilizadores m_registoUtilizador;
 
     /**
-     * Construtor vazio que cria uma instância de lista de exposições nova
+     * Constrói uma instância de Centro de Exposições com dados de teste.
      */
     public CentroExposicoes() {
-        List<Exposicao> listaExposicao = new ArrayList<>();
+        this.m_registaExposicao = new RegistoExposicoes();
+        this.m_registoUtilizador = new RegistoUtilizadores();
     }
 
     /**
-     * Método que permite ir buscar a lista de exposicoes
+     * Devolve o Registo de Exposições.
      *
-     * @return m_registaExposicoes - lista de exposições
+     * @return Registo de Exposições.
      */
-    public List<Exposicao> buscarListaExposicoes() {
-        return m_registaExposicao;
+    public RegistoExposicoes getRegistoExposicoes(){
+        return m_registaExposicao; 
+    }
+    
+    /**
+     * Devolve o Registo de Utilizadores.
+     *
+     * @return Registo de Utilizadores.
+     */
+    public RegistoUtilizadores getRegistoUtilizadores(){
+        return m_registoUtilizador; 
     }
 
     /**
@@ -41,27 +57,41 @@ public class CentroExposicoes {
      *
      * @return uma exposição
      */
-    public Exposicao getExposicoes() {
-        Exposicao e = new Exposicao();
-        return e;
-    }
+//    public Exposicao getExposicoes() {
+//        Exposicao e = new Exposicao();
+//        return e;
+//    }
 
     /**
      * Método que guarda a Candidatura;
      *
      * @param c recebe a candidatura e guarda na lista de exposições
      */
-    public void guardarCandidatura(Candidatura c) {
-        setRegisoExposicoes(c);
-    }
+//    public void guardarCandidatura(Candidatura c) {
+//        setRegisoExposicoes(c);
+//    }
 
     /**
      * Métod que permite devolver a lista de demonstracoes
      *
-     * @return a lista de demonstrações 
+     * @return a lista de demonstrações
      */
-    public List<Object> buscarListaDemonstracoes() {
-        List<Object> a = new ArrayList<>();
-        return a;
-    }
+//    public List<Object> getListaDemonstracoes() {
+//        List<Object> a = new ArrayList<>();
+//        return a;
+//    }
+
+    /**
+     * @return the m_registaExposicao
+     */
+//    public List<Exposicao> getM_registaExposicao() {
+//        return m_registaExposicao;
+//    }
+
+    /**
+     * @param m_registaExposicao the m_registaExposicao to set
+     */
+//    public void setM_registaExposicao(List<Exposicao> m_registaExposicao) {
+//        this.m_registaExposicao = m_registaExposicao;
+//    }
 }
