@@ -218,9 +218,9 @@ public class Exposicao {
     /**
      * Modifica a data de início da Exposição.
      *
-     * @param dataInicio a nova data de início da Exposição
+     * @param dtInicio a nova data de início da Exposição
      */
-    private void setDataInicio(Date dtInicio) {
+    public final void setDataInicio(Date dtInicio) {
         if (dtInicio == null) {
             throw new IllegalArgumentException("ERRO: Data de início é inválida!");
         }
@@ -230,9 +230,9 @@ public class Exposicao {
     /**
      * Modifica a data de fim da Exposição.
      *
-     * @param dataFim a nova data de fim da Exposição
+     * @param dtFim a nova data de fim da Exposição
      */
-    private void setDataFim(Date dtFim) {
+    public final void setDataFim(Date dtFim) {
         if (dtFim == null) {
             throw new IllegalArgumentException("ERRO: Data de fim é inválida!");
         }
