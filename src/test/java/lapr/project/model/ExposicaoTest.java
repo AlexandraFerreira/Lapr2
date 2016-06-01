@@ -91,6 +91,31 @@ public class ExposicaoTest {
         Date result = instance.getDataFim();
         assertEquals(expResult, result);
     }
+    
+    /**
+     * Test of getSubInicio method, of class Exposicao.
+     */
+    @Test
+    public void testGetSubInicio() {
+        System.out.println("getSubInicio");
+        Exposicao instance = new Exposicao();
+        Date expResult = new Date(12-12-1212);
+        instance.setDataSubInicio(expResult);
+        Date result = instance.getSubInicio();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getSubFim method, of class Exposicao.
+     */
+    @Test
+    public void testGetSubFim() {
+        System.out.println("getSubFim");
+        Exposicao instance = new Exposicao();
+        Date expResult = new Date(12-12-1212);
+        Date result = instance.getSubFim();
+        assertEquals(expResult, result);
+    }
 
     /**
      * Test of getLocal method, of class Exposicao.
@@ -104,7 +129,7 @@ public class ExposicaoTest {
         String result = instance.getLocal();
         assertEquals(expResult, result);
     }
-
+    
     /**
      * Test of getListaOrganizadores method, of class Exposicao.
      */
@@ -112,9 +137,11 @@ public class ExposicaoTest {
     public void testGetListaOrganizadores() {
         System.out.println("getListaOrganizadores");
         Exposicao instance = new Exposicao();
-        List<Organizador> expResult = new ArrayList<>();
-        List<Organizador> result = instance.getListaOrganizadores();
+        ListaOrganizadores expResult = null;
+        ListaOrganizadores result = instance.getListaOrganizadores();
         assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -142,23 +169,6 @@ public class ExposicaoTest {
         instance.setDescritivo(text_descritivo);
         String expResult = "Isto e o descritivo da exposicao";
         String result = instance.getDescritivo();
-        assertEquals(expResult, result);
-    }
-    
-    /**
-     * Test of equals method, of class Exposicao.
-     */
-    @Test
-    public void testEquals() {
-        System.out.println("equals");
-        Object outroObjeto = new Object();
-        Exposicao instance = new Exposicao();
-        instance.setTitulo("Exponor");
-        instance.setDescritivo("Isto é o descritivo da exposição");
-        instance.setPeriodo(null, null);
-        instance.setLocal("Porto");
-        boolean expResult = true;
-        boolean result = instance.equals(outroObjeto);
         assertEquals(expResult, result);
     }
 
@@ -189,24 +199,59 @@ public class ExposicaoTest {
         Date result = instance.getDataFim();
         assertEquals(expResult, result);
     }
-
+    
     /**
-     * Test of setPeriodo method, of class Exposicao.
+     * Test of setDataSubInicio method, of class Exposicao.
      */
     @Test
-    public void testSetPeriodo() {
-        System.out.println("setPeriodo");
-        Date dtInicio = new Date(12-12-1212);
-        Date dtFim = new Date(13-12-1212);
+    public void testSetDataSubInicio() {
+        System.out.println("setDataSubInicio");
+        Date subInicio = null;
         Exposicao instance = new Exposicao();
-        instance.setTitulo("Exponor");
-        instance.setDescritivo("Descricao");
-        instance.setPeriodo(dtInicio, dtFim);
-        instance.setLocal("Porto");
-        String expResult = "Título: Exponor; Texto Descritivo: Descricao; "
-                + "Data de Início: 12-12-1212; Data de Fim: 13-12-1212; Local: Porto.\nOrganizadores:\n";
-        String result = instance.toString();
-        assertEquals(expResult, result);
+        instance.setDataSubInicio(subInicio);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of setDataSubFim method, of class Exposicao.
+     */
+    @Test
+    public void testSetDataSubFim() {
+        System.out.println("setDataSubFim");
+        Date subFim = null;
+        Exposicao instance = new Exposicao();
+        instance.setDataSubFim(subFim);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+    
+    /**
+     * Test of setPeriodoRealizacao method, of class Exposicao.
+     */
+    @Test
+    public void testSetPeriodoRealizacao() {
+        System.out.println("setPeriodoRealizacao");
+        Date dtInicio = null;
+        Date dtFim = null;
+        Exposicao instance = new Exposicao();
+        instance.setPeriodoRealizacao(dtInicio, dtFim);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+    
+    /**
+     * Test of setPeriodoSubmissao method, of class Exposicao.
+     */
+    @Test
+    public void testSetPeriodoSubmissao() {
+        System.out.println("setPeriodoSubmissao");
+        Date subInicio = null;
+        Date subFim = null;
+        Exposicao instance = new Exposicao();
+        instance.setPeriodoSubmissao(subInicio, subFim);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -232,11 +277,26 @@ public class ExposicaoTest {
         Exposicao instance = new Exposicao();
         instance.setTitulo("Exponor");
         instance.setDescritivo("Isto e o descritivo da exposicao");
-        instance.setPeriodo(new Date(12,12,1212), new Date(12,12,1212));
+        instance.setPeriodoRealizacao(new Date(12,12,1212), new Date(12,12,1212));
         instance.setLocal("Porto");
         String expResult = "Título: Exponor; Texto Descritivo: Isto e o descritivo da exposicao; "
                 + "Data de Início: 12-12-1212; Data de Fim: 12-12-1212; Local: Porto.\nOrganizadores:\n";
         String result = instance.toString();
         assertEquals(expResult, result);
-    }    
+    } 
+
+    /**
+     * Test of equals method, of class Exposicao.
+     */
+    @Test
+    public void testEquals() {
+        System.out.println("equals");
+        Object outroObjeto = null;
+        Exposicao instance = new Exposicao();
+        boolean expResult = false;
+        boolean result = instance.equals(outroObjeto);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
 }

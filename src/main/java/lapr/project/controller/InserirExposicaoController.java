@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import lapr.project.model.CentroExposicoes;
 import lapr.project.model.Exposicao;
+import lapr.project.model.RegistoUtilizadores;
 import lapr.project.model.Utilizador;
 
 /**
@@ -75,8 +76,8 @@ public class InserirExposicaoController {
      *
      * @return a lista de utilizadores do centro de exposições
      */
-    public Utilizador getUtilizador(Utilizador userId) {
-        return this.centr_expos.getResgitoUtilizadores();
+    public Utilizador getUtilizador(String userId) {
+        return this.centr_expos.getRegistoUtilizadores().getUtilizador(userId);
     }
 
     /**
@@ -88,7 +89,7 @@ public class InserirExposicaoController {
      * exposição
      */
     public void addOrganizador(Utilizador u) {
-        this.exposicao.addOrganizador(u);
+        this.exposicao.getListaOrganizadores().addOrganizador(u);
     }
 
     /**
@@ -99,7 +100,7 @@ public class InserirExposicaoController {
      * informativo
      */
     public boolean validaExposicao() {
-        return this.centr_expos.validaExposicao(exposicao);
+        return this.centr_expos.getRegistoExposicoes().validaExposicao(exposicao);
     }
 
     /**
@@ -109,7 +110,7 @@ public class InserirExposicaoController {
      * @return true se exposição for válida (adicionando-a ao centro de
      * exposições) ou false caso não seja válida
      */
-    public boolean registaExposicao() {
-        return this.centr_expos.registaExposicao(exposicao);
+    public void registaExposicao() {
+         this.centr_expos.getRegistoExposicoes().registaExposicao(exposicao);
     }
 }

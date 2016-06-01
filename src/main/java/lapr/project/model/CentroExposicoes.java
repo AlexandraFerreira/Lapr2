@@ -33,6 +33,10 @@ public class CentroExposicoes {
     public RegistoExposicoes getRegistoExposicoes(){
         return m_registaExposicao; 
     }
+    
+    public RegistoUtilizadores getRegistoUtilizadores(){
+        return m_registoUtilizador; 
+    }
 
     /**
      * Método que devolve uma exposição da lista

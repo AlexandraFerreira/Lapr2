@@ -24,15 +24,20 @@ public class RegistoExposicoes {
         return new Exposicao();
     }
     
-    public void validaExposicao(Exposicao e){
-        
+    public boolean validaExposicao(Exposicao e){
+        if (e.valida()) {
+            return true;
+        }
+        return false;
     }
     
     public void registaExposicao(Exposicao e){
-        
+        if(validaExposicao(e)){
+            add(e);
+        }
     }
     
     public void add(Exposicao e){
-        
+        listExposicoes.add(e);
     }
 }

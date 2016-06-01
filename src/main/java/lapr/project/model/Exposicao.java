@@ -48,6 +48,11 @@ public class Exposicao {
      * O local da realização da Exposição.
      */
     private String local;
+    
+    /**
+     * A lista de pessoas responsáveis pela realização da Exposição.
+     */
+    ListaOrganizadores lista_Organizadores;
 
     /**
      * O título da Exposição por omissão.
@@ -180,7 +185,7 @@ public class Exposicao {
      *
      * @return a lista de organizadores da Exposição
      */
-    public List<Organizador> getListaOrganizadores() {
+    public ListaOrganizadores getListaOrganizadores() {
         return lista_Organizadores;
     }
 
@@ -312,6 +317,18 @@ public class Exposicao {
         }
 
         return sTxt;
+    }
+    
+    /**
+     * Método que valida a Exposição.
+     *
+     * @return true se o objeto recebido for válido. Caso contrário, retorna
+     * false.
+     */
+    public boolean valida() {
+        this.lista_Organizadores =  new ListaOrganizadores();
+
+        return lista_Organizadores.valida();
     }
 
     /**
