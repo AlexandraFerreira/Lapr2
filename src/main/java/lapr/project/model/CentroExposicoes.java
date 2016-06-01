@@ -18,22 +18,20 @@ public class CentroExposicoes {
     /**
      * variável lista de exposicões
      */
-    private List<Exposicao> m_registaExposicao;
+    private RegistoExposicoes m_registaExposicao;
+    
+    private RegistoUtilizadores m_registoUtilizador;
 
     /**
      * Construtor vazio que cria uma instância de lista de exposições nova
      */
     public CentroExposicoes() {
-        List<Exposicao> listaExposicao = new ArrayList<>();
+        this.m_registaExposicao = new RegistoExposicoes();
+        this.m_registoUtilizador = new RegistoUtilizadores();
     }
-
-    /**
-     * Método que permite ir buscar a lista de exposicoes
-     *
-     * @return m_registaExposicoes - lista de exposições
-     */
-    public List<Exposicao> buscarListaExposicoes() {
-        return m_registaExposicao;
+    
+    public RegistoExposicoes getRegistoExposicoes(){
+        return m_registaExposicao; 
     }
 
     /**

@@ -33,17 +33,21 @@ public class Exposicao {
      * A data de fim da Exposição.
      */
     private Date dataFim;
+    
+    /**
+     * A data de submissão de início da Exposição.
+     */
+    private Date subInicio;
+
+    /**
+     * A data de submissão de fim da Exposição.
+     */
+    private Date subFim;
 
     /**
      * O local da realização da Exposição.
      */
     private String local;
-
-    /**
-     * O conjunto de pessoas responsáveis (organizadores) pela realização da
-     * Exposição.
-     */
-    private final List<Organizador> lista_Organizadores;
 
     /**
      * O título da Exposição por omissão.
@@ -64,6 +68,16 @@ public class Exposicao {
      * A data de fim da Exposição por omissão.
      */
     private static final Date DATA_FIM_OMISSAO = new Date(System.currentTimeMillis());
+    
+    /**
+     * A data de submissão de início da Exposição por omissão.
+     */
+    private static final Date DATA_SUBMISSAO_INICIO_POR_OMISSAO = new Date(System.currentTimeMillis());
+
+    /**
+     * A data de submissão de fim da Exposição por omissão.
+     */
+    private static final Date DATA_SUBMISSAO_FIM_OMISSAO = new Date(System.currentTimeMillis());
 
     /**
      * O local da realização da Exposição por omissão.
@@ -76,9 +90,8 @@ public class Exposicao {
     public Exposicao() {
         setTitulo(TITULO_POR_OMISSAO);
         setDescritivo(DESCRITIVO_POR_OMISSAO);
-        setPeriodo(DATA_INICIO_POR_OMISSAO, DATA_FIM_OMISSAO);
+        setPeriodoRealizacao(DATA_INICIO_POR_OMISSAO, DATA_FIM_OMISSAO);
         setLocal(LOCAL_POR_OMISSAO);
-        this.lista_Organizadores = new ArrayList<>();
     }
 
     /**
@@ -96,33 +109,7 @@ public class Exposicao {
         setDescritivo(text_descritivo);
         setDataInicio(dataInicio);
         setDataFim(dataFim);
-        setLocal(local);
-        this.lista_Organizadores = new ArrayList<>();       
-    }
-
-    /**
-     * Constrói uma instância de Exposição recebendo o título, o texto
-     * descritivo, a data de início, a data de fim, o local e a lista de
-     * organizadores. Estes são os dados necessários para que o gestor de
-     * exposições crie com sucesso uma nova exposição, de forma a que possa
-     * ficar registada no sistema.
-     *
-     * @param titulo o título da Exposição
-     * @param text_descritivo o texto descritivo sobre o âmbito da Exposição
-     * @param dtInicio a data de início da Exposição
-     * @param dtFim a data de fim da Exposição
-     * @param local o local da realização da Exposição
-     * @param lista_organizadores o conjunto de pessoas responsáveis pela
-     * realização da Exposição
-     */
-    public Exposicao(String titulo, String text_descritivo, Date dtInicio, Date dtFim,
-            String local, List<Organizador> lista_organizadores) {
-        this.titulo = titulo;
-        this.text_descritivo = text_descritivo;
-        this.dataInicio = dtInicio;
-        this.dataFim = dtFim;
-        this.local = local;
-        this.lista_Organizadores = new ArrayList<>(lista_organizadores);
+        setLocal(local);      
     }
 
     /**
@@ -159,6 +146,24 @@ public class Exposicao {
      */
     public Date getDataFim() {
         return dataFim;
+    }
+
+    /**
+     * Devolve a data de submissão de início da Exposição.
+     *
+     * @return a data de submissão de início da Exposição
+     */
+    public Date getSubInicio() {
+        return subInicio;
+    }
+
+    /**
+     * Devolve a data de submissão de fim da Exposição.
+     *
+     * @return a data de submissão de fim da Exposição
+     */
+    public Date getSubFim() {
+        return subFim;
     }
 
     /**
@@ -202,19 +207,7 @@ public class Exposicao {
         }
         this.text_descritivo = text_descritivo;
     }
-
-    /**
-     * Modifica o período da Exposição recebendo por parâmetro a data de início
-     * e a data de fim.
-     *
-     * @param dtInicio a nova data de início da Exposição
-     * @param dtFim a nova data de fim da Exposição
-     */
-    public final void setPeriodo(Date dtInicio, Date dtFim) {
-        this.setDataInicio(dtInicio);
-        this.setDataFim(dtFim);
-    }
-
+    
     /**
      * Modifica a data de início da Exposição.
      *
@@ -226,7 +219,7 @@ public class Exposicao {
         }
         this.dataInicio = dtInicio;
     }
-
+    
     /**
      * Modifica a data de fim da Exposição.
      *
@@ -237,6 +230,54 @@ public class Exposicao {
             throw new IllegalArgumentException("ERRO: Data de fim é inválida!");
         }
         this.dataFim = dtFim;
+    }
+
+    /**
+     * Modifica o período da Exposição recebendo por parâmetro a data de início
+     * e a data de fim.
+     *
+     * @param dtInicio a nova data de início da Exposição
+     * @param dtFim a nova data de fim da Exposição
+     */
+    public final void setPeriodoRealizacao(Date dtInicio, Date dtFim) {
+        this.setDataInicio(dtInicio);
+        this.setDataFim(dtFim);
+    }
+
+    /**
+     * Modifica a data de submissão de início da Exposição.
+     *
+     * @param subInicio a nova data de submissão de início da Exposição
+     */
+    public final void setDataSubInicio(Date subInicio) {
+        if (subInicio == null) {
+            throw new IllegalArgumentException("ERRO: Data de início é inválida!");
+        }
+        this.subInicio = subInicio;
+    }
+    
+    /**
+     * Modifica a data de submissão de fim da Exposição.
+     *
+     * @param subFim a nova data  de fim da Exposição
+     */
+    public final void setDataSubFim(Date subFim) {
+        if (subFim == null) {
+            throw new IllegalArgumentException("ERRO: Data de fim é inválida!");
+        }
+        this.subFim = subFim;
+    }
+    
+    /**
+     * Modifica o período de submissão da Exposição recebendo por parâmetro a data de início
+     * e a data de fim.
+     *
+     * @param subInicio a nova data de submissão de início da Exposição
+     * @param subFim a nova data de submissão de fim da Exposição
+     */
+    public final void setPeriodoSubmissao(Date subInicio, Date subFim) {
+        this.setDataSubInicio(subInicio);
+        this.setDataSubFim(subFim);
     }
 
     /**

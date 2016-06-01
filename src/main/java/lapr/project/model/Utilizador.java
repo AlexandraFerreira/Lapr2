@@ -62,25 +62,6 @@ public class Utilizador {
     private static final String PASSWORD_POR_OMISSAO = "Sem password";
 
     /**
-     * Contrói uma instância de Utilizador recebendo por parâmetro o nome, o
-     * e-mail, o username, a password e um valor booleano sobre se está
-     * registado.
-     *
-     * @param sNome o nome do Utilizador
-     * @param sEmail o e-mail do Utilizador
-     * @param sUserName o username do Utilizador
-     * @param sPassword a password do Utilizador
-     * @param bRegistado se o Utilizador é registado / o estado de registo do
-     * Utilizador
-     */
-    public Utilizador(String sNome, String sEmail, String sUserName, String sPassword, Boolean bRegistado) {
-        setNome(sNome);
-        setEmail(sEmail);
-        setUsername(sUserName);
-        setPassword(sPassword);
-    }
-
-    /**
      * Contrói uma instância de Utilizador, no estado não registado, recebendo
      * por parâmetro o nome, o e-mail, o username e a password.
      *
@@ -104,7 +85,6 @@ public class Utilizador {
         email = EMAIL_POR_OMISSAO;
         userName = USERNAME_POR_OMISSAO;
         password = PASSWORD_POR_OMISSAO;
-
     }
 
     /**
@@ -193,9 +173,6 @@ public class Utilizador {
     }
 
     /**
-     *
-     *
-     * /**
      * Devolve a descrição textual do utilizador.
      *
      * @return características do utilizador.
