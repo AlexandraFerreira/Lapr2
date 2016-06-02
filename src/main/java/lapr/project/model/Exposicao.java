@@ -50,6 +50,11 @@ public class Exposicao {
      * A lista de pessoas responsáveis pela realização da Exposição.
      */
     ListaOrganizadores lista_Organizadores;
+    
+    /**
+     * Registo de candidaturas da Exposição.
+     */
+    private RegistoCandidatura registoCandidatura;
 
     /**
      * O título da Exposição por omissão.
@@ -139,6 +144,15 @@ public class Exposicao {
         setDataSubInicio(subInicio);
         setDataSubFim(subFim);
         setLocal(local);
+    }
+    
+    /**
+     * Devolve o Registo de Candidaturas.
+     *
+     * @return Registo de Candidaturas.
+     */
+    public RegistoCandidatura getRegistoCandidaturas(){
+        return registoCandidatura; 
     }
 
     /**

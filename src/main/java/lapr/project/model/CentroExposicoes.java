@@ -21,10 +21,12 @@ public class CentroExposicoes {
      * Registo de exposições da empresa.
      */
     private RegistoExposicoes m_registaExposicao;
+    
     /**
      * Lista de demonstrações onde se encontram as demonstrações possíveis
      */
     ListaDemonstracoes lista_Demonstracoes;
+    
     /**
      * Registo de utilizadores da empresa.
      */
