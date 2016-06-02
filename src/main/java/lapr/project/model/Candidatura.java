@@ -139,7 +139,10 @@ public class Candidatura {
     public void setTelefone(int telefone) {
         this.telefone = telefone;
     }
-          
+    /**
+     * Método que valida as demonstrações
+     */
+    public void validaDemonstracao(){}      
     
           
     

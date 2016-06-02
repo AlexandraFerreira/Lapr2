@@ -1,5 +1,6 @@
 package lapr.project.model;
 
+import java.util.ArrayList;
 import lapr.project.model.RegistoCandidatura;
 import lapr.project.date.Data;
 
@@ -51,7 +52,7 @@ public class Exposicao {
      * A lista de pessoas responsáveis pela realização da Exposição.
      */
     ListaOrganizadores lista_Organizadores;
-
+    
     /**
      * O título da Exposição por omissão.
      */
@@ -96,6 +97,8 @@ public class Exposicao {
         setPeriodoRealizacao(DATA_INICIO_POR_OMISSAO, DATA_FIM_OMISSAO);
         setPeriodoSubmissao(DATA_SUBMISSAO_INICIO_POR_OMISSAO, DATA_SUBMISSAO_FIM_OMISSAO);
         setLocal(LOCAL_POR_OMISSAO);
+        this.lista_Organizadores = new ListaOrganizadores();
+        
     }
 
     /**
@@ -388,4 +391,5 @@ public class Exposicao {
         RegistoCandidatura rc = new RegistoCandidatura();
         return rc;
     }
+    
 }
