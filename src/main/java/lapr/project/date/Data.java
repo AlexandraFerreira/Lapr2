@@ -168,6 +168,26 @@ public class Data implements Comparable<Data> {
     public String toDiaMesAnoString() {
         return String.format("%02d/%02d/%04d", dia, mes, ano);
     }
+
+    /**
+     * Devolve uma Data recebendo por parâmetro uma String.
+     *
+     * @param dataStr a data recebida por parâmetro
+     * @return data no tipo Data.
+     */
+    public static Data stringToData(String dataStr) {
+        
+        String[] datasArray;
+        datasArray = dataStr.split("-");
+        Data novaData = new Data();
+        
+        int anoData = Integer.parseInt(datasArray[0]);
+        int mesData = Integer.parseInt(datasArray[1]);
+        int diaData = Integer.parseInt(datasArray[2]);
+        novaData.setData(anoData, mesData, diaData);
+        
+        return novaData;
+    }
     
     /**
      * Compara a data com o objeto recebido.
