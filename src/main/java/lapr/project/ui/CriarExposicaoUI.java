@@ -5,6 +5,7 @@
  */
 package lapr.project.ui;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import lapr.project.controller.InserirExposicaoController;
@@ -23,6 +24,8 @@ public class CriarExposicaoUI extends javax.swing.JFrame {
      * A instância de CriarExposicaoController
      */
     private InserirExposicaoController controller;
+    
+    private DefaultListModel<Utilizador> utilizadorModel = new DefaultListModel<>();
 
     /**
      * O utilizador que está a criar exposição.
@@ -40,8 +43,18 @@ public class CriarExposicaoUI extends javax.swing.JFrame {
         initComponents();
         
         pack();
+        refreshList();
         setVisible(true);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }
+    
+    public void refreshList() {
+        
+        this.listUtilizadores.removeAll();
+        for(Utilizador user : this.controller.getListaUtilizadores().getListaUtilizadores()) {
+            this.utilizadorModel.addElement(user);
+        }
+       this.listUtilizadores.setModel(utilizadorModel);
     }
 
     /**

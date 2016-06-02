@@ -115,4 +115,8 @@ public class InserirExposicaoController {
     public void registaExposicao() {
          this.centr_expos.getRegistoExposicoes().registaExposicao(exposicao);
     }
+    
+    public RegistoUtilizadores getListaUtilizadores() {
+        return this.centr_expos.getRegistoUtilizadores();
+    }
 }

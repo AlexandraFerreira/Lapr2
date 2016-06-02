@@ -69,4 +69,8 @@ public class RegistoUtilizadores {
         System.out.println("RegistoUtilizadores: validaLista: " + lista.toString());
         return true;
     }
+    
+    public List<Utilizador> getListaUtilizadores() {
+        return this.listaUtilizadores;
+    }
 }
