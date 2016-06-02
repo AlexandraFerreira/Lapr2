@@ -6,10 +6,15 @@
 package lapr.project.model;
 
 /**
+ * Classe responsável pela decisao tomada pelos FAE às candidaturas para cada
+ * exposicao
  *
  * @author Miguel-PC
  */
 public class Decisao {
+
+    private Decisao d;
+    private String justificacao;
 
     /**
      * Método que vai retornar a informação de uma decisão
@@ -28,7 +33,7 @@ public class Decisao {
      * @param d do tipo Decisao (decisao tomada pelos FAE a uma candidatura)
      */
     public void setDecisao(Decisao d) {
-
+        this.d = d;
     }
 
     /**
@@ -38,7 +43,7 @@ public class Decisao {
      * decisao de candidaturas)
      */
     public void setJustificacao(String justificacao) {
-
+        this.justificacao = justificacao;
     }
 
     /**

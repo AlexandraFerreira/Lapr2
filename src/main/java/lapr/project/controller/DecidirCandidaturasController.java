@@ -9,10 +9,17 @@ import java.util.List;
 import lapr.project.model.*;
 
 /**
+ * A Classe DecidirCandidaturasController controla a decisao dos FAE para as
+ * candidaturas a uma determinada exposicao
  *
  * @author Miguel-PC
  */
 public class DecidirCandidaturasController {
+
+    private List<Candidatura> m_lCandidaturas;
+    private List<Exposicao> m_lExposicoes;
+    private Decisao d;
+    private String justificacao;
 
     /**
      * Método que vai retornar a lista de candidaturas a uma determinada
@@ -21,7 +28,9 @@ public class DecidirCandidaturasController {
      * @return a lista de candidaturas a uma determinada exposicao
      */
     public List<Candidatura> getListaCandidaturasExposicao() {
+        for (Exposicao listaExposicoes : m_lExposicoes) {
 
+        }
     }
 
     /**
@@ -46,7 +55,8 @@ public class DecidirCandidaturasController {
      * porquê de tal decisao para cada candidatura a uma exposicao
      */
     public void setDecisao(Decisao d, String justificacao) {
-
+        this.d = d;
+        this.justificacao = justificacao;
     }
 
     /**
