@@ -45,4 +45,28 @@ public class RegistoUtilizadores {
 
         return null;
     }
+    
+    public boolean alteraUtilizador(Utilizador uOriginal, Utilizador uClone) {
+        if (uClone.valida()) {
+            List<Utilizador> lstUtilizadores = new ArrayList<Utilizador>(listaUtilizadores);
+            lstUtilizadores.remove(uOriginal);
+            lstUtilizadores.add(uClone);
+            
+            if (validaLista(lstUtilizadores)) {
+                
+                uOriginal.setNome(uClone.getNome());
+                uOriginal.setEmail(uClone.getEmail());
+                uOriginal.setUsername(uClone.getUsername());
+                uOriginal.setPassword(uClone.getPassword());
+                
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    private boolean validaLista(List<Utilizador> lista) {
+        System.out.println("RegistoUtilizadores: validaLista: " + lista.toString());
+        return true;
+    }
 }
