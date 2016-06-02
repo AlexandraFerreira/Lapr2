@@ -25,6 +25,9 @@ class Main {
                 
                 CentroExposicoes ce = new CentroExposicoes();
                 new JanelaInicial(ce);
+
+                RegistarCandidaturaUI.main(args);
+
 	}
 
 }

@@ -69,4 +69,8 @@ public class RegistoExposicoes {
     public void add(Exposicao e){
         listExposicoes.add(e);
     }
+    
+    public void listarExposicoes(Exposicao e){
+        listExposicoes.toString();
+    }
 }
