@@ -10,8 +10,9 @@ import java.util.List;
 import java.lang.Object;
 
 /**
- * Esta classe é responsável por guardar e gerir todas as funcionalidades da aplicação,
- * uma vez que é a classe que representa a empresa.
+ * Esta classe é responsável por guardar e gerir todas as funcionalidades da
+ * aplicação, uma vez que é a classe que representa a empresa.
+ *
  * @author Fábio Sousa
  */
 public class CentroExposicoes {
@@ -20,7 +21,7 @@ public class CentroExposicoes {
      * Registo de exposições da empresa.
      */
     private RegistoExposicoes m_registaExposicao;
-    
+
     /**
      * Registo de utilizadores da empresa.
      */
@@ -39,17 +40,17 @@ public class CentroExposicoes {
      *
      * @return Registo de Exposições.
      */
-    public RegistoExposicoes getRegistoExposicoes(){
-        return m_registaExposicao; 
+    public RegistoExposicoes getRegistoExposicoes() {
+        return m_registaExposicao;
     }
-    
+
     /**
      * Devolve o Registo de Utilizadores.
      *
      * @return Registo de Utilizadores.
      */
-    public RegistoUtilizadores getRegistoUtilizadores(){
-        return m_registoUtilizador; 
+    public RegistoUtilizadores getRegistoUtilizadores() {
+        return m_registoUtilizador;
     }
 
     /**
@@ -61,7 +62,6 @@ public class CentroExposicoes {
 //        Exposicao e = new Exposicao();
 //        return e;
 //    }
-
     /**
      * Método que guarda a Candidatura;
      *
@@ -70,7 +70,6 @@ public class CentroExposicoes {
 //    public void guardarCandidatura(Candidatura c) {
 //        setRegisoExposicoes(c);
 //    }
-
     /**
      * Métod que permite devolver a lista de demonstracoes
      *
@@ -80,18 +79,30 @@ public class CentroExposicoes {
 //        List<Object> a = new ArrayList<>();
 //        return a;
 //    }
-
     /**
      * @return the m_registaExposicao
      */
 //    public List<Exposicao> getM_registaExposicao() {
 //        return m_registaExposicao;
 //    }
-
     /**
      * @param m_registaExposicao the m_registaExposicao to set
      */
 //    public void setM_registaExposicao(List<Exposicao> m_registaExposicao) {
 //        this.m_registaExposicao = m_registaExposicao;
 //    }
+    /**
+     * Método que vai fazer a confirmação dos registos de novos utilizadores
+     */
+    public void confirmacaoDosRegistos() {
+
+    }
+
+    /**
+     * Método responsável pela confirmação do registo de novos utilizadores
+     * escolhido
+     */
+    public void confirmacaoRegistoEscolhido() {
+
+    }
 }
