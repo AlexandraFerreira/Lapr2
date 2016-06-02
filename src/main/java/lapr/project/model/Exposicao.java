@@ -1,7 +1,5 @@
 package lapr.project.model;
 
-import java.util.ArrayList;
-import lapr.project.model.RegistoCandidatura;
 import lapr.project.date.Data;
 
 /**
@@ -52,7 +50,7 @@ public class Exposicao {
      * A lista de pessoas responsáveis pela realização da Exposição.
      */
     ListaOrganizadores lista_Organizadores;
-    
+
     /**
      * O título da Exposição por omissão.
      */
@@ -98,7 +96,7 @@ public class Exposicao {
         setPeriodoSubmissao(DATA_SUBMISSAO_INICIO_POR_OMISSAO, DATA_SUBMISSAO_FIM_OMISSAO);
         setLocal(LOCAL_POR_OMISSAO);
         this.lista_Organizadores = new ListaOrganizadores();
-        
+
     }
 
     /**
@@ -276,25 +274,25 @@ public class Exposicao {
     }
 
     /**
-     * Modifica a data de submissão de início da Exposição.
+     * Modifica a data de início de submissão da Exposição.
      *
-     * @param subInicio a nova data de submissão de início da Exposição
+     * @param subInicio a nova data de início de submissão da Exposição
      */
     public final void setDataSubInicio(Data subInicio) {
         if (subInicio == null) {
-            throw new IllegalArgumentException("ERRO: Data de início é inválida!");
+            throw new IllegalArgumentException("ERRO: Data de início de submissão é inválida!");
         }
         this.subInicio = subInicio;
     }
 
     /**
-     * Modifica a data de submissão de fim da Exposição.
+     * Modifica a data de fim de submissão da Exposição.
      *
-     * @param subFim a nova data de fim da Exposição
+     * @param subFim a nova data de fim de submissão da Exposição
      */
     public final void setDataSubFim(Data subFim) {
         if (subFim == null) {
-            throw new IllegalArgumentException("ERRO: Data de fim é inválida!");
+            throw new IllegalArgumentException("ERRO: Data de fim de submissão é inválida!");
         }
         this.subFim = subFim;
     }
@@ -303,8 +301,8 @@ public class Exposicao {
      * Modifica o período de submissão da Exposição recebendo por parâmetro a
      * data de início e a data de fim.
      *
-     * @param subInicio a nova data de submissão de início da Exposição
-     * @param subFim a nova data de submissão de fim da Exposição
+     * @param subInicio a nova data de início de submissão da Exposição
+     * @param subFim a nova data de fim de submissão da Exposição
      */
     public final void setPeriodoSubmissao(Data subInicio, Data subFim) {
         this.setDataSubInicio(subInicio);
@@ -382,14 +380,14 @@ public class Exposicao {
     }
 
     /**
-     *Método que cria uma candidatura mas na exposição limita-se a criar
-     * uma instância deregistocandidatura para poder cria a candidatura propriamente
-     * @return
+     * Método que cria uma candidatura mas na exposição limita-se a criar uma
+     * instância deregistocandidatura para poder cria a candidatura propriamente
+     *
+     * @return registo de candidatura
      */
-
     public RegistoCandidatura criarCandidatura() {
         RegistoCandidatura rc = new RegistoCandidatura();
         return rc;
     }
-    
+
 }
