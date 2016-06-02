@@ -16,6 +16,9 @@ public class Produto {
      * Declaracao da variavel nome.
      */
     private String nome;
+    /**
+     * Declaracao da variavel nome por omissao.
+     */
     private static String NOME_POR_OMISSAO = "Sem Nome";
 
     /**
@@ -51,4 +54,5 @@ public class Produto {
         this.nome = nome;
     }
 
+    
 }
