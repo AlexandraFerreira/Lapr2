@@ -1,13 +1,13 @@
-
 package lapr.project.model;
 
+import lapr.project.model.RegistoCandidatura;
 import lapr.project.date.Data;
 
 /**
- * A classe Exposição conta com varios atributos alguns deles associados
- * a outras classes. Esta classe representa na sua essencia o negócio,
- * pois este sistema trata-se sobre gestão de exposições.
- * 
+ * A classe Exposição conta com varios atributos alguns deles associados a
+ * outras classes. Esta classe representa na sua essencia o negócio, pois este
+ * sistema trata-se sobre gestão de exposições.
+ *
  * @author AlexandraFerreira 1140388
  */
 public class Exposicao {
@@ -31,7 +31,7 @@ public class Exposicao {
      * A data de fim da Exposição.
      */
     private Data dataFim;
-    
+
     /**
      * A data de submissão de início da Exposição.
      */
@@ -46,7 +46,7 @@ public class Exposicao {
      * O local da realização da Exposição.
      */
     private String local;
-    
+
     /**
      * A lista de pessoas responsáveis pela realização da Exposição.
      */
@@ -71,7 +71,7 @@ public class Exposicao {
      * A data de fim da Exposição por omissão.
      */
     private static final Data DATA_FIM_OMISSAO = Data.dataAtual();
-    
+
     /**
      * A data de submissão de início da Exposição por omissão.
      */
@@ -113,12 +113,12 @@ public class Exposicao {
         setDescritivo(text_descritivo);
         setDataInicio(dataInicio);
         setDataFim(dataFim);
-        setLocal(local);      
+        setLocal(local);
     }
-    
+
     /**
      * Constrói uma instância de Exposição recebendo o título, o texto
-     * descritivo, a data de início, a data de fim, a data de início de 
+     * descritivo, a data de início, a data de fim, a data de início de
      * submissão, a data de fim de submissão e o local por parâmetro.
      *
      * @param titulo o título da Exposição
@@ -137,7 +137,7 @@ public class Exposicao {
         setDataFim(dataFim);
         setDataSubInicio(subInicio);
         setDataSubFim(subFim);
-        setLocal(local);      
+        setLocal(local);
     }
 
     /**
@@ -235,7 +235,7 @@ public class Exposicao {
         }
         this.text_descritivo = text_descritivo;
     }
-    
+
     /**
      * Modifica a data de início da Exposição.
      *
@@ -247,7 +247,7 @@ public class Exposicao {
         }
         this.dataInicio = dtInicio;
     }
-    
+
     /**
      * Modifica a data de fim da Exposição.
      *
@@ -283,11 +283,11 @@ public class Exposicao {
         }
         this.subInicio = subInicio;
     }
-    
+
     /**
      * Modifica a data de submissão de fim da Exposição.
      *
-     * @param subFim a nova data  de fim da Exposição
+     * @param subFim a nova data de fim da Exposição
      */
     public final void setDataSubFim(Data subFim) {
         if (subFim == null) {
@@ -295,10 +295,10 @@ public class Exposicao {
         }
         this.subFim = subFim;
     }
-    
+
     /**
-     * Modifica o período de submissão da Exposição recebendo por parâmetro a data de início
-     * e a data de fim.
+     * Modifica o período de submissão da Exposição recebendo por parâmetro a
+     * data de início e a data de fim.
      *
      * @param subInicio a nova data de submissão de início da Exposição
      * @param subFim a nova data de submissão de fim da Exposição
@@ -339,7 +339,7 @@ public class Exposicao {
 
         return sTxt;
     }
-    
+
     /**
      * Método que valida a Exposição.
      *
@@ -347,7 +347,7 @@ public class Exposicao {
      * false.
      */
     public boolean valida() {
-        this.lista_Organizadores =  new ListaOrganizadores();
+        this.lista_Organizadores = new ListaOrganizadores();
 
         return lista_Organizadores.valida();
     }
@@ -376,5 +376,16 @@ public class Exposicao {
                 && dataFim == outraExposicao.dataFim
                 && local.equalsIgnoreCase(outraExposicao.local)
                 && lista_Organizadores == outraExposicao.lista_Organizadores;
+    }
+
+    /**
+     *Método que cria uma candidatura mas na exposição limita-se a criar
+     * uma instância deregistocandidatura para poder cria a candidatura propriamente
+     * @return
+     */
+
+    public RegistoCandidatura criarCandidatura() {
+        RegistoCandidatura rc = new RegistoCandidatura();
+        return rc;
     }
 }
