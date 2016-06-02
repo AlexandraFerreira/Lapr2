@@ -286,5 +286,15 @@ public class Utilizador {
         return validaNome(nome) && validaUsername(userName)
                 && validaPassword(password) && validaEmail(email);
     }
+    
+    /**
+     * Constroi uma instancia cópia do Utilizador.
+     * 
+     * @return cópia do Utilizador
+     */
+    @Override
+    public Utilizador clone() {
+        return new Utilizador(this.getNome(), this.getUsername(), this.getPassword(), this.getEmail());
+    }
 
 }

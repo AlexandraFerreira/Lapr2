@@ -6,7 +6,7 @@
 package lapr.project.model;
 
 /**
- *
+ * Esta classe tem como finalidade a construcao de objetos do tipo Candidatura.
  * @author Cristiano Melo
  */
 public class Candidatura {
@@ -31,16 +31,31 @@ public class Candidatura {
      */ 
     private int telefone;
     
-    private Produto produto;
+   
     
+    /**
+     * Declaracao da variavel area por omissao.
+     */
     private static double AREA_POR_OMISSAO=0;
     
+    /**
+     * Declaracao da variavel quantidade de convites por omissao.
+     */
     private static int QUANT_CONVITES_POR_OMISSAO=0;
     
+     /**
+     * Declaracao da variavel empresa por omissao.
+     */
     private static String NOME_EMPRESA_POR_OMISSAO= "Sem nome";
     
+     /**
+     * Declaracao da variavel area por omissao.
+     */
     private static String MORADA_POR_OMISSAO="Sem morada";
     
+     /**
+     * Declaracao da variavel telefone por omissao.
+     */
     private static int TELEFONE_POR_OMISSAO=220000000;
     
     /**
@@ -139,7 +154,10 @@ public class Candidatura {
     public void setTelefone(int telefone) {
         this.telefone = telefone;
     }
-          
+    /**
+     * Método que valida as demonstrações
+     */
+    public void validaDemonstracao(){}      
     
           
     

@@ -8,6 +8,7 @@ package lapr.project.model;
 import java.util.ArrayList;
 import java.util.List;
 import java.lang.Object;
+import lapr.project.model.ListaDemonstracoes;
 
 /**
  * Esta classe é responsável por guardar e gerir todas as funcionalidades da aplicação,
@@ -20,7 +21,10 @@ public class CentroExposicoes {
      * Registo de exposições da empresa.
      */
     private RegistoExposicoes m_registaExposicao;
-    
+    /**
+     * Lista de demonstrações onde se encontram as demonstrações possíveis
+     */
+    ListaDemonstracoes lista_Demonstracoes;
     /**
      * Registo de utilizadores da empresa.
      */
@@ -32,6 +36,7 @@ public class CentroExposicoes {
     public CentroExposicoes() {
         this.m_registaExposicao = new RegistoExposicoes();
         this.m_registoUtilizador = new RegistoUtilizadores();
+        this.lista_Demonstracoes = new ListaDemonstracoes();
     }
 
     /**

@@ -346,8 +346,9 @@ public class CriarExposicaoUI extends javax.swing.JFrame {
                 && txtDataInicio.getText().length() != 0 && txtDataFim.getText().length() != 0
                 && txtDataInicioSub.getText().length() != 0 && txtDataFimSub.getText().length() 
                 != 0 && txtLocal.getText().length() != 0) {
-            e = controller.setDados(txtTitulo.getText(), Data.stringToData(txtDescritivo.getText()), txtDataInicio.getText(), 
-                    txtDataFim.getText(), txtDataInicioSub.getText(), txtDataFimSub.getText(),
+            e = controller.setDados(txtTitulo.getText(), txtDescritivo.getText(), 
+                    Data.stringToData(txtDataInicio.getText()), Data.stringToData(txtDataFim.getText()), 
+                    Data.stringToData(txtDataInicioSub.getText()), Data.stringToData(txtDataFimSub.getText()),
                     txtLocal.getText());
             if (e == null) {
                 JOptionPane.showMessageDialog(
