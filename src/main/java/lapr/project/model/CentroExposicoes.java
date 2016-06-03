@@ -11,8 +11,9 @@ import java.lang.Object;
 import lapr.project.model.ListaDemonstracoes;
 
 /**
- * Esta classe é responsável por guardar e gerir todas as funcionalidades da aplicação,
- * uma vez que é a classe que representa a empresa.
+ * Esta classe é responsável por guardar e gerir todas as funcionalidades da
+ * aplicação, uma vez que é a classe que representa a empresa.
+ *
  * @author Fábio Sousa
  */
 public class CentroExposicoes {
@@ -21,11 +22,10 @@ public class CentroExposicoes {
      * Registo de exposições da empresa.
      */
     private RegistoExposicoes m_registaExposicao;
-    
+
     /**
      * Lista de demonstrações onde se encontram as demonstrações possíveis
      */
-    ListaDemonstracoes lista_Demonstracoes;
     List<Exposicao> m_lListaExposicoes;
     /**
      * Registo de utilizadores da empresa.
@@ -38,7 +38,7 @@ public class CentroExposicoes {
     public CentroExposicoes() {
         this.m_registaExposicao = new RegistoExposicoes();
         this.m_registoUtilizador = new RegistoUtilizadores();
-        this.lista_Demonstracoes = new ListaDemonstracoes();
+
     }
 
     /**
@@ -46,17 +46,17 @@ public class CentroExposicoes {
      *
      * @return Registo de Exposições.
      */
-    public RegistoExposicoes getRegistoExposicoes(){
-        return m_registaExposicao; 
+    public RegistoExposicoes getRegistoExposicoes() {
+        return m_registaExposicao;
     }
-    
+
     /**
      * Devolve o Registo de Utilizadores.
      *
      * @return Registo de Utilizadores.
      */
-    public RegistoUtilizadores getRegistoUtilizadores(){
-        return m_registoUtilizador; 
+    public RegistoUtilizadores getRegistoUtilizadores() {
+        return m_registoUtilizador;
     }
 
     /**
@@ -77,17 +77,6 @@ public class CentroExposicoes {
 //    public void guardarCandidatura(Candidatura c) {
 //        setRegisoExposicoes(c);
 //    }
-
-    /**
-     * Métod que permite devolver a lista de demonstracoes
-     *
-     * @return a lista de demonstrações
-     */
-//    public List<Object> getListaDemonstracoes() {
-//        List<Object> a = new ArrayList<>();
-//        return a;
-//    }
-
     /**
      * @return the m_registaExposicao
      */
