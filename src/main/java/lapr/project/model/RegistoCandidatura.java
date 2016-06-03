@@ -40,14 +40,14 @@ public class RegistoCandidatura {
      *  Método que valida a candidatura 
      * @return true or false de acordo consoante a validação da candidatura
      */
-    public boolean validaCandidatura() {
+    public boolean validaCandidatura(Candidatura c) {
         return true;
     }
     /**
      * Método que regista a candidatura após tudo verificado
      */
-    public void registaCandidatura(){
-    
+    public void registaCandidatura(Candidatura c){
+    validaCandidatura(c);
     }
     
     /**

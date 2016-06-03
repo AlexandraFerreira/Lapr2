@@ -66,6 +66,10 @@ public class Candidatura {
      * Declaracao da variavel telefone por omissao.
      */
     private static int TELEFONE_POR_OMISSAO = 220000000;
+    /**
+     * Declaração da lista de demonstrações.
+     */
+    private ListaDemonstracoes demo;
 
     /**
      * Construtor completo que inicia a Candidatura com todos os elementos da
@@ -303,5 +307,12 @@ public class Candidatura {
     public Candidatura clone() {
         return new Candidatura(this.getNomeEmp(), this.getMorada(),
                 this.getTelefone(), this.getAreaPretendida(), this.getProdutos(), this.getQuatConvites());
+    }
+    /**
+     * Método que guarda a demonstração na lista de demonstrações
+     * @param d demonstração
+     */
+    public void guardarDemonstracao(Demonstracao d){
+        demo.add(d);
     }
 }

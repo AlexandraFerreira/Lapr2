@@ -90,10 +90,14 @@ public class Exposicao {
      * O local da realização da Exposição por omissão.
      */
     private static final String LOCAL_POR_OMISSAO = "Sem local";
-
+    /**
+     * Declaração da variável lista de demonstrações
+     */
+    ListaDemonstracoes lista_Demonstracoes;
     /**
      * Constrói uma instância de Exposição com todos os valores "vazios".
      */
+    
     public Exposicao() {
         setTitulo(TITULO_POR_OMISSAO);
         setDescritivo(DESCRITIVO_POR_OMISSAO);
@@ -120,6 +124,7 @@ public class Exposicao {
         setDataInicio(dataInicio);
         setDataFim(dataFim);
         setLocal(local);
+        this.lista_Demonstracoes = new ListaDemonstracoes();
     }
 
     /**
@@ -401,5 +406,13 @@ public class Exposicao {
         RegistoCandidatura rc = new RegistoCandidatura();
         return rc;
     }
-
+        /**
+     * Métod que permite devolver a lista de demonstracoes
+     *
+     * @return a lista de demonstrações
+     */
+    public ListaDemonstracoes getListaDemonstracoes() {
+        return lista_Demonstracoes;
+    }
+    
 }
