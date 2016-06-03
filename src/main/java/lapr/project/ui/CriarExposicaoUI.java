@@ -353,17 +353,17 @@ public class CriarExposicaoUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarActionPerformed
-        Exposicao e;
         controller.novaExposicao();
         if (txtTitulo.getText().length() != 0 && txtDescritivo.getText().length() != 0 
                 && txtDataInicio.getText().length() != 0 && txtDataFim.getText().length() != 0
                 && txtDataInicioSub.getText().length() != 0 && txtDataFimSub.getText().length() 
                 != 0 && txtLocal.getText().length() != 0) {
-            e = controller.setDados(txtTitulo.getText(), txtDescritivo.getText(), 
+            controller.setDados(txtTitulo.getText(), txtDescritivo.getText(), 
                     Data.stringToData(txtDataInicio.getText()), Data.stringToData(txtDataFim.getText()), 
                     Data.stringToData(txtDataInicioSub.getText()), Data.stringToData(txtDataFimSub.getText()),
                     txtLocal.getText());
-            if (e == null) {
+            
+            if (controller.registaExposicao()) {
                 JOptionPane.showMessageDialog(
                     panel, "Os dados não são válidos!", "Nova Exposição",
                     JOptionPane.ERROR_MESSAGE);

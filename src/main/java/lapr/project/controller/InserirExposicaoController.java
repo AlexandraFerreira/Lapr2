@@ -112,8 +112,8 @@ public class InserirExposicaoController {
      * @return true se exposição for válida (adicionando-a ao centro de
      * exposições) ou false caso não seja válida
      */
-    public void registaExposicao() {
-         this.centr_expos.getRegistoExposicoes().registaExposicao(exposicao);
+    public boolean registaExposicao() {
+         return this.centr_expos.getRegistoExposicoes().registaExposicao(exposicao);
     }
     
     public RegistoUtilizadores getListaUtilizadores() {

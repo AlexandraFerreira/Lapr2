@@ -353,7 +353,7 @@ public class Exposicao {
                 this.titulo, this.text_descritivo, this.dataInicio.toDiaMesAnoString(),
                 this.dataFim.toDiaMesAnoString(), this.local);
 
-        for (Organizador org : this.lista_Organizadores) {
+        for (Organizador org : this.lista_Organizadores.getListaOrganizadores()) {
             sTxt += String.format("%s \n", org.toString());
         }
 
@@ -367,9 +367,7 @@ public class Exposicao {
      * false.
      */
     public boolean valida() {
-        this.lista_Organizadores = new ListaOrganizadores();
-
-        return lista_Organizadores.valida();
+        return lista_Organizadores.valida(lista_Organizadores);
     }
 
     /**

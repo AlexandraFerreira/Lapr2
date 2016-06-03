@@ -55,10 +55,12 @@ public class RegistoExposicoes {
      * 
      * @param e a exposição a registar
      */
-    public void registaExposicao(Exposicao e){
+    public boolean registaExposicao(Exposicao e){
         if(validaExposicao(e)){
             add(e);
+            return true;
         }
+        return false;
     }
     
     /**
