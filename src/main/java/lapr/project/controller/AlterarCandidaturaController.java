@@ -27,7 +27,7 @@ public class AlterarCandidaturaController {
     }
     
     public boolean setDados(String nome, String morada, int telemovel, double area,
-            int quantidade, Produto produtos, Demonstracao demo) {
+            int quantidade, ListaProdutos produtos, Demonstracao demo) {
         
         Candidatura cClone = cand.clone();
         
