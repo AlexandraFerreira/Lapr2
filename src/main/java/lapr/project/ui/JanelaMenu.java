@@ -18,6 +18,7 @@ public class JanelaMenu extends JFrame {
 
 
     private CentroExposicoes empresa;
+    private Utilizador u;
     private JButton btnUC1, btnUC2, btnUC3, btnUC4, btnUC5, btnUC6, btnUC7, btnUC8, btnUC9, btnLogout;
     private JFrame frameInicial;
 
@@ -26,6 +27,7 @@ public class JanelaMenu extends JFrame {
 
         this.empresa = empresa;
         this.frameInicial = frameInicial;
+        this.u=u;
         
         setPreferredSize(new Dimension(600, 300));
 
@@ -43,7 +45,7 @@ public class JanelaMenu extends JFrame {
     private JPanel criarComponentes() {
         
         JPanel p = new JPanel((new GridLayout(5, 2, 40, 20)));
-        btnUC1 = new JButton("Criar exposição");
+        btnUC1 = criarBotaoCriarExposicao();
         btnUC2 = new JButton("Definir FAE");
         btnUC3 = criarBotaoAtribuirCandidaturas();
         btnUC4 = criarBotaoDecidirCandidaturas();
@@ -72,6 +74,20 @@ public class JanelaMenu extends JFrame {
         btnUC9.setEnabled(false);
 
         return p;
+    }
+    
+    private JButton criarBotaoCriarExposicao(){
+        JButton btn = new JButton("Criar Exposição");
+
+        btn.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                new CriarExposicaoUI(empresa, u);
+            }
+        });
+
+        return btn;
     }
 
     private JButton criarBotaoAtribuirCandidaturas() {

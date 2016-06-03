@@ -262,7 +262,14 @@ public class UtilizadorTest {
         System.out.println("clone");
         Utilizador instance = new Utilizador("nome", "email12@email.pt", "u12", "pass12");
         String expResult = instance.toString();
+        System.out.println("AQUI !!!");
+        Utilizador u = instance.clone();
+        System.out.println("---------------------0");
         String result = instance.clone().toString();
+        System.out.println("----------------1");
+        System.out.println(expResult);
+        System.out.println(result);
+        System.out.println("----------------2");
         assertEquals(expResult, result);
     }
 
