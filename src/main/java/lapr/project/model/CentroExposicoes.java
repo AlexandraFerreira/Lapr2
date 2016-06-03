@@ -26,7 +26,7 @@ public class CentroExposicoes {
      * Lista de demonstrações onde se encontram as demonstrações possíveis
      */
     ListaDemonstracoes lista_Demonstracoes;
-    
+    List<Exposicao> m_lListaExposicoes;
     /**
      * Registo de utilizadores da empresa.
      */
@@ -64,10 +64,10 @@ public class CentroExposicoes {
      *
      * @return uma exposição
      */
-//    public Exposicao getExposicoes() {
-//        Exposicao e = new Exposicao();
-//        return e;
-//    }
+    public Exposicao getExposicoes() {
+        Exposicao e = new Exposicao();
+        return e;
+    }
 
     /**
      * Método que guarda a Candidatura;
@@ -91,9 +91,9 @@ public class CentroExposicoes {
     /**
      * @return the m_registaExposicao
      */
-//    public List<Exposicao> getM_registaExposicao() {
-//        return m_registaExposicao;
-//    }
+    public List<Exposicao> getM_registaExposicao() {
+        return m_lListaExposicoes;
+    }
 
     /**
      * @param m_registaExposicao the m_registaExposicao to set
