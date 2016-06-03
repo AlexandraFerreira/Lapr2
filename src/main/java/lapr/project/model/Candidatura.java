@@ -16,26 +16,31 @@ public class Candidatura {
      * Declaracao da variavel com area Pretendida.
      */
     private double areaPretendida;
-    
+
     /**
      * Declaracao da variavel com a quantidade de convites.
      */
     private int quatConvites;
-    
+
     /**
      * Declaracao da variavel com o nome da empresa.
      */
     private String nomeEmp;
-    
+
     /**
      * Declaracao da variavel com a morada.
      */
     private String morada;
-    
+
     /**
      * Declaracao da variavel com o telefone.
      */
     private int telefone;
+
+    /**
+     * A lista de Produtos de uma Candidatura.
+     */
+    private ListaProdutos listProdutos;
 
     /**
      * Declaracao da variavel area por omissao.
@@ -72,11 +77,13 @@ public class Candidatura {
      * @param morada variavel que indica a morada da empresa.
      * @param telefone variavel que indica telemovel da empresa.
      */
-    public Candidatura(String nomeEmp, String morada, int telefone, double areaPretendida, int quantConvites) {
+    public Candidatura(String nomeEmp, String morada, int telefone, double areaPretendida,
+            ListaProdutos produtos, int quantConvites) {
         setNomeEmp(nomeEmp);
         setMorada(morada);
         setTelefone(telefone);
         setAreaPretendida(areaPretendida);
+        setProdutos(produtos);
         setQuatConvites(quantConvites);
     }
 
@@ -88,6 +95,7 @@ public class Candidatura {
         this.quatConvites = QUANT_CONVITES_POR_OMISSAO;
         this.nomeEmp = NOME_EMPRESA_POR_OMISSAO;
         this.morada = MORADA_POR_OMISSAO;
+        this.listProdutos = new ListaProdutos();
         this.telefone = TELEFONE_POR_OMISSAO;
     }
 
@@ -103,10 +111,22 @@ public class Candidatura {
     /**
      * Metodo setAreaPretendida que permite alterar a area pretendida.
      *
-     * @param areaPretendida
+     * @param areaPretendida a nova área de exposição pretendida pela Empresa
      */
     public void setAreaPretendida(double areaPretendida) {
+        if (areaPretendida <= 0) {
+            throw new IllegalArgumentException("ERRO: Àrea é inválida!");
+        }
         this.areaPretendida = areaPretendida;
+    }
+
+    /**
+     * Devolve a lista de produtos a expor.
+     *
+     * @return os produtos a expor
+     */
+    public ListaProdutos getProdutos() {
+        return this.listProdutos;
     }
 
     /**
@@ -121,15 +141,27 @@ public class Candidatura {
     /**
      * Metodo setQuatConvites que permite alterar a quantidade de convites.
      *
-     * @param quatConvites
+     * @param quatConvites a nova quantidade de convites a adquirir
      */
     public void setQuatConvites(int quatConvites) {
+        if (quatConvites <= 0) {
+            throw new IllegalArgumentException("ERRO: Quantidade é inválida!");
+        }
         this.quatConvites = quatConvites;
     }
-    
-    public void setProdutos(Produto produtos) {
+
+    /**
+     * Modifica a lista de produtos a expor.
+     *
+     * @param produtos os novos produtos a expor
+     */
+    public void setProdutos(ListaProdutos produtos) {
+        //if(produtos == null || produtos.isEmpty()){
+        //    throw new IllegalArgumentException("ERRO: Produtos são inválidos!");
+        //}
+        this.listProdutos = produtos;
     }
-    
+
     public void setDemonstracoes(Demonstracao demo) {
     }
 
@@ -145,9 +177,12 @@ public class Candidatura {
     /**
      * Metodo setNomeEmp que permite alterar o nome da empresa.
      *
-     * @param nomeEmp
+     * @param nomeEmp o novo nome da Empresa
      */
     public void setNomeEmp(String nomeEmp) {
+        if (nomeEmp == null || nomeEmp.trim().isEmpty()) {
+            throw new IllegalArgumentException("ERRO: Nome é inválido!");
+        }
         this.nomeEmp = nomeEmp;
     }
 
@@ -163,9 +198,12 @@ public class Candidatura {
     /**
      * Metodo setMorada que permite alterar a morada.
      *
-     * @param morada
+     * @param morada a nova morada da Empresa
      */
     public void setMorada(String morada) {
+        if (morada == null || morada.trim().isEmpty()) {
+            throw new IllegalArgumentException("ERRO: Morada é inválida!");
+        }
         this.morada = morada;
     }
 
@@ -181,10 +219,51 @@ public class Candidatura {
     /**
      * Metodo setTelefone que permite alterar o telefone.
      *
-     * @param telefone
+     * @param telefone o novo número de telemóvel da Empresa
      */
     public void setTelefone(int telefone) {
+        if (telefone < 100000000 || telefone > 999999999) {
+            throw new IllegalArgumentException("ERRO: Número de telemóvel é inválido!");
+        }
         this.telefone = telefone;
+    }
+
+    /**
+     * Devolve a descrição textual da Candidatura.
+     *
+     * @return caraterísticas da Candidatura.
+     */
+    @Override
+    public String toString() {
+        return String.format("Nome: %s; Morada: %s; Contacto: %d; Área Pretendida: "
+                + "%.1f m2; Produtos A Expor: %s; Quantidade De Convites: %d ",
+                nomeEmp, morada, telefone, areaPretendida, listProdutos, quatConvites);
+    }
+
+    /**
+     * Verifica se uma instancia de Candidatura é igual à outra.
+     *
+     * @param outroObjeto o objeto a comparar com a Candidatura.
+     * @return true se o objeto recebido representar outra Candidatura
+     * equivalente à Candidatura. Caso contrário, retorna false.
+     */
+    @Override
+    public boolean equals(Object outroObjeto) {
+        if (this == outroObjeto) {
+            return true;
+        }
+        if (outroObjeto == null || this.getClass() != outroObjeto.getClass()) {
+            return false;
+        }
+
+        Candidatura outraCandidatura = (Candidatura) outroObjeto;
+
+        return nomeEmp.equalsIgnoreCase(outraCandidatura.nomeEmp)
+                && morada.equalsIgnoreCase(outraCandidatura.morada)
+                && telefone == outraCandidatura.telefone
+                && areaPretendida == outraCandidatura.areaPretendida
+                && listProdutos == outraCandidatura.listProdutos
+                && quatConvites == outraCandidatura.quatConvites;
     }
 
     /**
@@ -192,7 +271,7 @@ public class Candidatura {
      */
     public void validaDemonstracao() {
     }
-    
+
     /**
      * Validação do nome da empresa da Candidatura.
      *
@@ -203,7 +282,7 @@ public class Candidatura {
     public boolean validaNomeEmp(String nome) {
         return !(nome == null || nome.trim().isEmpty() || nome.matches(".*\\d+.*"));
     }
-    
+
     /**
      * Valida os atributos do Utilizador.
      *
@@ -217,12 +296,12 @@ public class Candidatura {
 
     /**
      * Constroi uma instancia cópia da Candidatura.
-     * 
+     *
      * @return cópia da Candidatura
      */
     @Override
     public Candidatura clone() {
-        return new Candidatura(this.getNomeEmp(), this.getMorada(), 
-                this.getTelefone(), this.getAreaPretendida(), this.getQuatConvites());
+        return new Candidatura(this.getNomeEmp(), this.getMorada(),
+                this.getTelefone(), this.getAreaPretendida(), this.getProdutos(), this.getQuatConvites());
     }
 }

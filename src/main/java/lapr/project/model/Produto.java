@@ -5,6 +5,8 @@
  */
 package lapr.project.model;
 
+import java.util.Objects;
+
 /**
  * Esta classe guarda a designacao do produto.
  *
@@ -16,6 +18,7 @@ public class Produto {
      * Declaracao da variavel nome.
      */
     private String nome;
+
     /**
      * Declaracao da variavel nome por omissao.
      */
@@ -25,10 +28,10 @@ public class Produto {
      * Construtor completo que inicia o Produto com todos os elementos da classe
      * Produto.
      *
-     * @param nome
+     * @param nome o nome do Produto
      */
     public Produto(String nome) {
-        this.nome = nome;
+        setNome(nome);
     }
 
     /**
@@ -40,19 +43,69 @@ public class Produto {
 
     /**
      * Metodo getNome que retorna o nome do produto.
-     * @return
+     *
+     * @return o nome do Produto
      */
     public String getNome() {
         return nome;
     }
 
     /**
-     *Metodo setNome que permite alterar o nome do produto
-     * @param nome
+     * Metodo setNome que permite alterar o nome do produto
+     *
+     * @param nome o nome do Produto
      */
     public void setNome(String nome) {
+        if (nome == null || nome.isEmpty()) {
+            throw new IllegalArgumentException("ERRO: Nome do produto é inválido!");
+        }
         this.nome = nome;
     }
-
     
+    /**
+     * Validação de um produto.
+     *
+     * @return true se o objeto for válido. Caso contrário, retorna false.
+     */
+    public boolean valida() {
+        System.out.println("Produto em validação: " + this.toString());
+        return validaNome(nome);
+    }
+
+    private boolean validaNome(String nome) {
+        if (nome == null || nome.trim().isEmpty() || nome.matches(".*\\d+.*")) {
+            throw new IllegalArgumentException("ERRO: Nome de produto inválido!");
+        }
+        return true;
+    }
+
+    /**
+     * Devolve a descrição textual do Produto.
+     *
+     * @return caraterísticas do Produto.
+     */
+    @Override
+    public String toString() {
+        return "Produto: nome: " + nome + ".";
+    }
+
+    /**
+     * Verifica se uma instancia de Produto é igual à outra.
+     *
+     * @param obj o objeto a comparar com o Produto.
+     * @return true se o objeto recebido representar outro Produto equivalente
+     * ao Produto. Caso contrário, retorna false.
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || this.getClass() != obj.getClass()) {
+            return false;
+        }
+        final Produto other = (Produto) obj;
+        return Objects.equals(this.nome, other.nome);
+    }
+
 }
