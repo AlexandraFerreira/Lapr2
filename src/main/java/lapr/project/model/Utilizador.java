@@ -294,7 +294,7 @@ public class Utilizador {
      */
     @Override
     public Utilizador clone() {
-        return new Utilizador(this.getNome(), this.getUsername(), this.getPassword(), this.getEmail());
+        return new Utilizador(this.getNome(), this.getEmail(), this.getUsername(), this.getPassword());
     }
 
 }

@@ -26,6 +26,15 @@ public class ListaOrganizadores {
     public ListaOrganizadores() {
         this.m_lOrganizadores = new ArrayList<>();
     }
+    
+    /**
+     * Devolve a lista de organizadores.
+     * 
+     * @return a lista de organizadores
+     */
+    public List<Organizador> getListaOrganizadores(){
+        return m_lOrganizadores;
+    }
 
     /**
      * Método que adiciona o utilizador recebido por parâmetro caso este seja válido.

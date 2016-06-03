@@ -50,7 +50,7 @@ public class Exposicao {
      * A lista de pessoas responsáveis pela realização da Exposição.
      */
     ListaOrganizadores lista_Organizadores;
-    
+
     /**
      * Registo de candidaturas da Exposição.
      */
@@ -145,14 +145,14 @@ public class Exposicao {
         setDataSubFim(subFim);
         setLocal(local);
     }
-    
+
     /**
      * Devolve o Registo de Candidaturas.
      *
      * @return Registo de Candidaturas.
      */
-    public RegistoCandidatura getRegistoCandidaturas(){
-        return registoCandidatura; 
+    public RegistoCandidatura getRegistoCandidaturas() {
+        return registoCandidatura;
     }
 
     /**
@@ -348,7 +348,7 @@ public class Exposicao {
                 this.titulo, this.text_descritivo, this.dataInicio.toDiaMesAnoString(),
                 this.dataFim.toDiaMesAnoString(), this.local);
 
-        for (Organizador org : this.lista_Organizadores) {
+        for (Organizador org : this.lista_Organizadores.getListaOrganizadores()) {
             sTxt += String.format("%s \n", org.toString());
         }
 
@@ -362,9 +362,7 @@ public class Exposicao {
      * false.
      */
     public boolean valida() {
-        this.lista_Organizadores = new ListaOrganizadores();
-
-        return lista_Organizadores.valida();
+        return lista_Organizadores.valida(lista_Organizadores);
     }
 
     /**
