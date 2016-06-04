@@ -77,6 +77,14 @@ public class InserirExposicaoController {
         return exposicao;
     }
 
+    public Exposicao getExposicao() {
+        return exposicao;
+    }
+    
+    public void setExposicao(Exposicao e) {
+        this.exposicao = e;
+    }
+
     /**
      * Devolve a lista de utilizadores do centro de exposições. Método utilizado
      * para mostrar ao gestor de exposições (que pretende criar a nova

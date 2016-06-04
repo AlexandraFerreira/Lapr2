@@ -143,11 +143,11 @@ public class ExposicaoTest {
     public void testGetListaOrganizadores() {
         System.out.println("getListaOrganizadores");
         Exposicao instance = new Exposicao();
-        ListaOrganizadores expResult = null;
+        ListaOrganizadores lo = new ListaOrganizadores();
+        instance.setListaOrganizadores(lo);
+        ListaOrganizadores expResult = lo;
         ListaOrganizadores result = instance.getListaOrganizadores();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -310,17 +310,85 @@ public class ExposicaoTest {
      */
     @Test
     public void testEquals() {
+//        System.out.println("equals");
+//        Object outroObjeto = new Exposicao("titulo", "descritivo", new Data(1212, 12, 12), 
+//                new Data(1212, 12, 13), "local");
+//        Exposicao instance = new Exposicao();
+//        instance.setTitulo("titulo");
+//        instance.setDescritivo("descritivo");
+//        instance.setDataInicio(new Data(1212, 12, 12));
+//        instance.setDataFim(new Data(1212, 12, 13));
+//        instance.setLocal("local");
+//        boolean expResult = true;
+//        boolean result = instance.equals(outroObjeto);
+//        assertEquals(expResult, result);
+        
         System.out.println("equals");
-        Object outroObjeto = new Exposicao("titulo", "descritivo", new Data(1212, 12, 12), 
-                new Data(1212, 12, 13), "local");
+        Exposicao outro_e = new Exposicao();
         Exposicao instance = new Exposicao();
-        instance.setTitulo("titulo");
-        instance.setDescritivo("descritivo");
-        instance.setDataInicio(new Data(1212, 12, 12));
-        instance.setDataFim(new Data(1212, 12, 13));
-        instance.setLocal("local");
         boolean expResult = true;
-        boolean result = instance.equals(outroObjeto);
+        boolean result = instance.equals(outro_e);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getRegistoCandidaturas method, of class Exposicao.
+     */
+    @Test
+    public void testGetRegistoCandidaturas() {
+        System.out.println("getRegistoCandidaturas");
+        Exposicao instance = new Exposicao();
+        RegistoCandidatura expResult = null;
+        RegistoCandidatura result = instance.getRegistoCandidaturas();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of valida method, of class Exposicao.
+     */
+    @Test
+    public void testValida() {
+        System.out.println("valida");
+        Exposicao instance = new Exposicao();
+        
+        ListaOrganizadores lo = new ListaOrganizadores();
+        List<Organizador> lstOrg = new ArrayList<>();
+        lstOrg.add(new Organizador(new Utilizador()));
+        lo.setListaOrganizadores(lstOrg);
+        instance.setListaOrganizadores(lo);
+
+        boolean expResult = true;
+        boolean result = instance.valida();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of criarCandidatura method, of class Exposicao.
+     */
+    @Test
+    public void testCriarCandidatura() {
+        System.out.println("criarCandidatura");
+        Exposicao instance = new Exposicao();
+        RegistoCandidatura expResult = null;
+        RegistoCandidatura result = instance.criarCandidatura();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getListaDemonstracoes method, of class Exposicao.
+     */
+    @Test
+    public void testGetListaDemonstracoes() {
+        System.out.println("getListaDemonstracoes");
+        Exposicao instance = new Exposicao();
+        ListaDemonstracoes ld = new ListaDemonstracoes();
+        instance.setListaDemonstracoes(ld);
+        ListaDemonstracoes expResult = ld;
+        ListaDemonstracoes result = instance.getListaDemonstracoes();
         assertEquals(expResult, result);
     }
 }

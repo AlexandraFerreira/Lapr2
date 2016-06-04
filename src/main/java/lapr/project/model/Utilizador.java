@@ -49,7 +49,7 @@ public class Utilizador {
     /**
      * O e-mail do utilizador por omissão.
      */
-    private static final String EMAIL_POR_OMISSAO = "Sem email";
+    private static final String EMAIL_POR_OMISSAO = "naotem@naotem.naotem";
 
     /**
      * O username do utilizador por omissão.

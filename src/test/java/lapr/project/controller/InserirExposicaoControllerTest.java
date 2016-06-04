@@ -7,6 +7,9 @@ package lapr.project.controller;
 
 import lapr.project.date.Data;
 import lapr.project.model.CentroExposicoes;
+import lapr.project.model.Exposicao;
+import lapr.project.model.Organizador;
+import lapr.project.model.RegistoUtilizadores;
 import lapr.project.model.Utilizador;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -92,11 +95,39 @@ public class InserirExposicaoControllerTest {
     @Test
     public void testAddOrganizador() {
         System.out.println("addOrganizador");
-        Utilizador u = null;
-        InserirExposicaoController instance = null;
-        instance.addOrganizador(u);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        CentroExposicoes empresa = new CentroExposicoes();
+        Exposicao e = new Exposicao();
+        Utilizador u = new Utilizador("Alexandra", "email@email.email", "Alex", "pass");
+        empresa.getRegistoUtilizadores().registaUtilizador(u);
+        String strId = "Alex";
+        InserirExposicaoController instance = new InserirExposicaoController(empresa);
+        instance.setExposicao(e);
+        boolean expResult = true;
+        boolean result = instance.addOrganizador(strId);
+
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of removerOrganizador method, of class InserirExposicaoController.
+     */
+    @Test
+    public void testRemoverOrganizador() {
+        System.out.println("removerOrganizador");
+        CentroExposicoes empresa = new CentroExposicoes();
+        Utilizador u = new Utilizador();
+        String strId = "Alex";
+        u.setUsername(strId);
+        Organizador o = new Organizador(u);
+        empresa.getRegistoUtilizadores().addUtilizador(u);
+        Exposicao expo = new Exposicao();
+        empresa.getRegistoExposicoes().registaExposicao(expo);
+        InserirExposicaoController instance = new InserirExposicaoController(empresa);
+        instance.setExposicao(expo);
+        instance.addOrganizador(strId);
+        boolean expResult = true;
+        boolean result = instance.removerOrganizador(expo.getListaOrganizadores().obterOrganizador(0));
+        assertEquals(expResult, result);
     }
 
     /**
@@ -119,10 +150,34 @@ public class InserirExposicaoControllerTest {
     @Test
     public void testRegistaExposicao() {
         System.out.println("registaExposicao");
+        CentroExposicoes ce = new CentroExposicoes();
+        InserirExposicaoController instance = new InserirExposicaoController(ce);
+        
+        instance.novaExposicao();
+        instance.getExposicao().getListaOrganizadores().getListaOrganizadores().
+                add(new Organizador(new Utilizador()));
+        instance.setDados("Titulo", "Descritivo", new Data(1212, 12, 11), 
+                new Data(1212, 12, 12), new Data(1212, 12, 11), new Data(1212, 12, 12), "Local");
+        
+        boolean expResult = true;
+        boolean result = instance.registaExposicao();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getListaUtilizadores method, of class InserirExposicaoController.
+     */
+    @Test
+    public void testGetListaUtilizadores() {
+        System.out.println("getListaUtilizadores");
         InserirExposicaoController instance = null;
-        instance.registaExposicao();
+        RegistoUtilizadores expResult = null;
+        RegistoUtilizadores result = instance.getListaUtilizadores();
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+
+  
     
 }

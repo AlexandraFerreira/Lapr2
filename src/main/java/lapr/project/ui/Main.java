@@ -31,8 +31,6 @@ class Main {
                 
                 new JanelaInicial(ce);
 
-                RegistarCandidaturaUI.main(args);
-
 	}
 
 }

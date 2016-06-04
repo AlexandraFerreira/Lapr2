@@ -339,6 +339,24 @@ public class Exposicao {
         }
         this.local = local;
     }
+    
+    /**
+     * Modifica a Lista de Organizadores.
+     *
+     * @param lo a lista de Organizadores
+     */
+    public void setListaOrganizadores(ListaOrganizadores lo) {
+        lista_Organizadores = lo;
+    }
+    
+    /**
+     * Modifica a Lista de Demonstracoes.
+     *
+     * @param ld a lista de Demonstracoes
+     */
+    public void setListaDemonstracoes(ListaDemonstracoes ld) {
+        lista_Demonstracoes = ld;
+    }
 
     /**
      * Devolve a descrição textual da Exposição.
