@@ -27,7 +27,6 @@ class Main {
                 CentroExposicoes ce = new CentroExposicoes();
                 Utilizador u = new Utilizador("Alex", "alex@hot.com", "Alex", "pass");
                 ce.getRegistoUtilizadores().addUtilizador(u);
-                new CriarExposicaoUI(ce, u);
                 
                 new JanelaInicial(ce);
 

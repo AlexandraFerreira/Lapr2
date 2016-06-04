@@ -72,8 +72,43 @@ public class JanelaMenu extends JFrame {
         btnUC7.setEnabled(false);
         btnUC8.setEnabled(false);
         btnUC9.setEnabled(false);
+        
+        JMenuBar menuBar = criarBarraMenus();
+        setJMenuBar(menuBar);
 
         return p;
+    }
+    
+    private JMenuBar criarBarraMenus() {
+        JMenuBar menuBar = new JMenuBar();
+
+        menuBar.add(criarSubMenuLista());
+
+        return menuBar;
+    }
+    
+    private JMenu criarSubMenuLista() {
+        JMenu menu = new JMenu("Alterações");
+        menu.setMnemonic(KeyEvent.VK_F);
+
+        menu.add(criarMenuAlterarUtilizador());
+
+        return menu;
+    }
+    
+    private JMenuItem criarMenuAlterarUtilizador() {
+        JMenuItem item = new JMenuItem("Alterar Utilizador", 'U');
+        item.setAccelerator(KeyStroke.getKeyStroke("ctrl U"));
+
+        item.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new AlterarUtilizadorUI(empresa, u);
+            }
+        }
+        );
+
+        return item;
     }
     
     private JButton criarBotaoCriarExposicao(){
