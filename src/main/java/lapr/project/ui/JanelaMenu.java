@@ -103,7 +103,7 @@ public class JanelaMenu extends JFrame {
         item.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new AlterarUtilizadorUI(empresa, u);
+                new AlterarUtilizadorUI(JanelaMenu.this, empresa, u);
             }
         }
         );
