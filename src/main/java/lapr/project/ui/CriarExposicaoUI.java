@@ -14,6 +14,7 @@ import lapr.project.date.Data;
 import lapr.project.model.CentroExposicoes;
 import lapr.project.model.Exposicao;
 import lapr.project.model.ListaOrganizadores;
+import lapr.project.model.Organizador;
 import lapr.project.model.Utilizador;
 
 /**
@@ -44,8 +45,7 @@ public class CriarExposicaoUI extends javax.swing.JFrame {
     /**
      * Creates new form CriarExposicaoUI1
      */
-    public CriarExposicaoUI(CentroExposicoes ce, Utilizador u) {
-        initComponents();
+    public CriarExposicaoUI(CentroExposicoes ce, Utilizador u) {       
         this.empresa = ce;
         this.controller = new InserirExposicaoController(ce);
         utilizador = u;
@@ -213,6 +213,11 @@ public class CriarExposicaoUI extends javax.swing.JFrame {
         });
 
         btnRemover.setText("Remover");
+        btnRemover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoverActionPerformed(evt);
+            }
+        });
 
         lblUtilizadores.setText("Utilizadores");
 
@@ -416,7 +421,17 @@ public class CriarExposicaoUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
-        // TODO add your handling code here:
+        if (listUtilizadores.getSelectedIndex() != -1) {
+            Utilizador selectedUtilizador = (Utilizador) listUtilizadores.getSelectedValue();
+
+            if (selectedUtilizador != null && controller.addOrganizador(selectedUtilizador.getUsername())) {
+                modelListOrganizadores = (ModeloListaOrganizadores) listUtilizadores.getModel();
+                modelListOrganizadores.addElement(new Organizador(selectedUtilizador));
+            }
+            modelListaUtilizadores = (ModeloListaUtilizadores) listUtilizadores.getModel();
+            modelListaUtilizadores.removeElement(selectedUtilizador);
+
+        }
     }//GEN-LAST:event_btnAdicionarActionPerformed
 
     private void txtDataInicioSubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataInicioSubActionPerformed
@@ -426,6 +441,18 @@ public class CriarExposicaoUI extends javax.swing.JFrame {
     private void txtTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTituloActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTituloActionPerformed
+
+    private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
+        Organizador selectedOrganizador = (Organizador) listOrganizadores.getSelectedValue();
+
+        if (controller.removerOrganizador(selectedOrganizador)) {
+            modelListOrganizadores = (ModeloListaOrganizadores) listOrganizadores.getModel();
+            modelListOrganizadores.removeElement(selectedOrganizador);
+        }
+
+        modelListaUtilizadores = (ModeloListaUtilizadores) listOrganizadores.getModel();
+        modelListaUtilizadores.addElement(selectedOrganizador.getUtilizador());
+    }//GEN-LAST:event_btnRemoverActionPerformed
 
 private javax.swing.JPanel panel;    
 

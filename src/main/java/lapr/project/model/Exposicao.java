@@ -367,7 +367,7 @@ public class Exposicao {
      * false.
      */
     public boolean valida() {
-        return lista_Organizadores.valida(lista_Organizadores);
+        return lista_Organizadores.valida();
     }
 
     /**
