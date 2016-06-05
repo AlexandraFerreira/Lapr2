@@ -294,8 +294,13 @@ public class Candidatura {
      * false.
      */
     public boolean valida() {
+        int contador = 0;
         System.out.println("Utilizador em validação: " + this.toString());
-        return validaNomeEmp(nomeEmp);
+        if (validaNomeEmp(nomeEmp) == true || validaMorada(morada) == true
+                || validaContato()) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -308,11 +313,17 @@ public class Candidatura {
         return new Candidatura(this.getNomeEmp(), this.getMorada(),
                 this.getTelefone(), this.getAreaPretendida(), this.getProdutos(), this.getQuatConvites());
     }
+
     /**
      * Método que guarda a demonstração na lista de demonstrações
+     *
      * @param d demonstração
      */
-    public void guardarDemonstracao(Demonstracao d){
+    public void guardarDemonstracao(Demonstracao d) {
         demo.add(d);
+    }
+
+    private boolean validaMorada(String Morada) {
+        return !(morada == null || morada.trim().isEmpty() || morada.matches(".*\\d+.*"));
     }
 }
