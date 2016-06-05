@@ -35,11 +35,11 @@ public class JanelaInicial extends JFrame {
 
         criarComponentes();
 
-        JPanel pImagem = criarPainelImagem();
+//        JPanel pImagem = criarPainelImagem();
         JPanel p1 = criarPainelDados();
         JPanel p3 = criarPainelBotoes();
 
-        add(pImagem, BorderLayout.NORTH);
+//        add(pImagem, BorderLayout.NORTH);
         add(p1, BorderLayout.CENTER);
         add(p3, BorderLayout.SOUTH);
 
@@ -172,9 +172,9 @@ public class JanelaInicial extends JFrame {
         return item;
     }
 
-    private JPanel criarPainelImagem() {
-        return new Imagem();
-    }
+//    private JPanel criarPainelImagem() {
+//        return new Imagem();
+//    }
 
     private JPanel criarPainelDados() {
         JPanel pUsername = criarPainelUsername();

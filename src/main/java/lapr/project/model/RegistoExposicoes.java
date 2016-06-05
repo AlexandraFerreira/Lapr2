@@ -54,9 +54,10 @@ public class RegistoExposicoes {
      * lista de exposições.
      * 
      * @param e a exposição a registar
+     * @return boolean com resultado da operação
      */
     public boolean registaExposicao(Exposicao e){
-        if(validaExposicao(e)){
+        if(e.valida() && validaExposicao(e)){
             add(e);
             return true;
         }

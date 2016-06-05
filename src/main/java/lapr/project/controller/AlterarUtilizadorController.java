@@ -37,9 +37,4 @@ public class AlterarUtilizadorController {
         
         return empresa.getRegistoUtilizadores().alteraUtilizador(utilizador, uClone);
     }
-    
-    public void clone(Utilizador u){
-        u.clone();
-    }
-
 }
