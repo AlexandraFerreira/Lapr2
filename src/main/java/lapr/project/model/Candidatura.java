@@ -294,10 +294,9 @@ public class Candidatura {
      * false.
      */
     public boolean valida() {
-        int contador = 0;
-        System.out.println("Utilizador em validação: " + this.toString());
+        System.out.println("Candidatura em validação: " + this.toString());
         if (validaNomeEmp(nomeEmp) == true || validaMorada(morada) == true
-                || validaContato()) {
+                || validaContato(telefone) || validaArea(areaPretendida) || validaQuantidade(quatConvites)) {
             return true;
         }
         return false;
@@ -323,7 +322,38 @@ public class Candidatura {
         demo.add(d);
     }
 
-    private boolean validaMorada(String Morada) {
+    /**
+     * Método que valida a morada de uma candidatura.
+     *
+     * @param Morada
+     * @return
+     */
+
+    public boolean validaMorada(String Morada) {
         return !(morada == null || morada.trim().isEmpty() || morada.matches(".*\\d+.*"));
+    }
+
+    /**
+     * Método que valida o contato de uma candidatura.
+     *
+     * @param telefone
+     * @return
+     */
+
+    public boolean validaContato(int telefone) {
+        return !(telefone > 100000000 & telefone < 999999999);
+    }
+    /**
+     * Método que valida a área pretendida para a candidatura.
+     * @param areaPretendida
+     * @return 
+     */
+
+    public boolean validaArea(double areaPretendida) {
+        return !(areaPretendida<=0);
+    }
+
+    public boolean validaQuantidade(int quatConvites) {
+        return !(quatConvites<=0);
     }
 }

@@ -24,7 +24,7 @@ public class Decisao {
      * @return informação da decisao (String)
      */
     public String getInfoDecisao(Decisao d) {
-
+        return "";//TODO
     }
 
     /**
@@ -52,7 +52,7 @@ public class Decisao {
      * @return
      */
     public boolean valida() {
-
+        return true;//TODO
     }
 
     /**
@@ -62,6 +62,6 @@ public class Decisao {
      * @return decisao fica guardada na lista de decisões
      */
     public boolean add(Decisao d) {
-
+        return true;//TODO
     }
 }

@@ -51,8 +51,8 @@ public class RegistoCandidatura {
     /**
      * Método que regista a candidatura após tudo verificado
      */
-    public void registaCandidatura(Candidatura c) {
-        validaCandidatura(c);
+    public boolean registaCandidatura(Candidatura c) {
+        return validaCandidatura(c);
     }
 
     /**

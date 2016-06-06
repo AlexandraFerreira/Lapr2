@@ -8,6 +8,7 @@ package lapr.project.ui;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import lapr.project.controller.RegistarCandidaturaController;
 import lapr.project.model.*;
 
 /**
@@ -19,6 +20,8 @@ public class JanelaMenu extends JFrame {
 
     private CentroExposicoes empresa;
     private Utilizador u;
+    private Candidatura c;
+    private RegistarCandidaturaController controller;
     private JButton btnUC1, btnUC2, btnUC3, btnUC4, btnUC5, btnUC6, btnUC7, btnUC8, btnUC9, btnLogout;
     private JFrame frameInicial;
 
@@ -159,7 +162,7 @@ public class JanelaMenu extends JFrame {
         btnUC5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new RegistarCandidaturaUI(empresa,u,controller,c);
             }
         });
         return btnUC5;

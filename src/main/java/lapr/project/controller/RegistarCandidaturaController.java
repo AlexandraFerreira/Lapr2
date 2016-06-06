@@ -116,8 +116,8 @@ public class RegistarCandidaturaController {
      * Método que regista a candidatura.
      * @param rcandidatura 
      */
-    public void registaCandidatura(RegistoCandidatura rcandidatura){
-        rcandidatura.registaCandidatura(c);
+    public boolean registaCandidatura(Candidatura c){
+        return rcandidatura.registaCandidatura(c);
     }
     
 }
