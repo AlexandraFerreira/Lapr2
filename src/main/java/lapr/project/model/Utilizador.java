@@ -7,6 +7,7 @@ package lapr.project.model;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import lapr.project.utils.PasswordValidator;
 
 /**
  * Classe Utilizador, com finalidade de construção de objectos do tipo
@@ -272,7 +273,10 @@ public class Utilizador {
      * false.
      */
     public boolean validaPassword(String password) {
-        return !(password == null || password.isEmpty() || password.length() < 4);
+        if(password == null || password.isEmpty() || new PasswordValidator().validate(password) == false){
+            return false;
+        }
+        return true;
     }
 
     /**

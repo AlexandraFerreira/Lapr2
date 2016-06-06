@@ -25,7 +25,7 @@ class Main {
 		System.out.println(calculatorExample.sum(3, 5));
                 
                 CentroExposicoes ce = new CentroExposicoes();
-                Utilizador u = new Utilizador("Alex", "alex@hot.com", "Alex", "pass");
+                Utilizador u = new Utilizador("Alex", "alex@hot.com", "Alex", "Pa2.");
                 ce.getRegistoUtilizadores().addUtilizador(u);
                 
                 new JanelaInicial(ce);
