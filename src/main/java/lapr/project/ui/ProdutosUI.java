@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
 import lapr.project.controller.RegistarCandidaturaController;
 import lapr.project.model.ListaProdutos;
 import lapr.project.model.Produto;
@@ -31,7 +32,8 @@ public class ProdutosUI extends javax.swing.JDialog {
         this.listaProdutos =new ListaProdutos();
         this.listaProdutos.getListaProdutos();
         initComponents();
-        
+        Produto prod = new Produto();
+        listaProdutos.addProduto(prod);
         this.jListProdutos.setModel(modelProdutct);
         this.controller=controller;
         setVisible(true);
@@ -112,6 +114,9 @@ public class ProdutosUI extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
+        this.modelProdutct = new ModeloListaProdutos(new ListaProdutos());
+        jListProdutos.setModel(modelProdutct);
+        jListProdutos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jListProdutos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -143,10 +148,13 @@ public class ProdutosUI extends javax.swing.JDialog {
 
     private void AddProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddProdutoActionPerformed
         if(listaProdutos.tamanho()<5){
-        JOptionPane.showInputDialog("Insira um produto....");
-}else{
+        String produto = JOptionPane.showInputDialog("Insira um produto....");
+        Produto prod = new Produto(produto);
+        listaProdutos.addProduto(prod);
+        modelProdutct.addElement(prod);
+    }else{
     JOptionPane.showMessageDialog(null, "Não pode inserir mais de 0 produtos!", "Inserir um produto", JOptionPane.ERROR_MESSAGE);
-}
+    }
     }//GEN-LAST:event_AddProdutoActionPerformed
 
     private void RemoveProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveProdutoActionPerformed
@@ -190,7 +198,7 @@ public class ProdutosUI extends javax.swing.JDialog {
          if(modelProdutct.getSize()>0){
         String[] opSimNao = {"Sim", "Não"};
         int resposta = JOptionPane.showOptionDialog(ProdutosUI.this,
-                "Tem a certeza que quer confirmar a lista com um total de " + modelProdutct.getSize() + " palavras-chave?",
+                "Tem a certeza que quer confirmar a lista com um total de " + modelProdutct.getSize() + " produtos?",
                 "Confirmar Lista de Produtos",
                 0,
                 JOptionPane.QUESTION_MESSAGE,
@@ -206,7 +214,7 @@ public class ProdutosUI extends javax.swing.JDialog {
 
         }
         }else{
-            JOptionPane.showMessageDialog(ProdutosUI.this,"É necessário que a lista de palavras-chave possua pelo menos um autor para que seja confirmada!","Confirmar Lista de Palavras-Chave",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(ProdutosUI.this,"É necessário que a lista de produtos possua pelo menos um produto para que seja confirmada!","Confirmar Lista de Produtos",JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_ConfirmarActionPerformed
 

@@ -73,7 +73,7 @@ public class Produto {
     }
 
     private boolean validaNome(String nome) {
-        if (nome == null || nome.trim().isEmpty() || nome.matches(".*\\d+.*")) {
+        if (nome == null || nome.trim().isEmpty()) {
             throw new IllegalArgumentException("ERRO: Nome de produto inválido!");
         }
         return true;

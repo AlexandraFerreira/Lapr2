@@ -126,12 +126,8 @@
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
         <Component class="javax.swing.JList" name="jListProdutos">
-          <Properties>
-            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-              <StringArray count="0"/>
-            </Property>
-          </Properties>
           <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="this.modelProdutct = new ModeloListaProdutos(new ListaProdutos());&#xa;jListProdutos.setModel(modelProdutct);&#xa;jListProdutos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);"/>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Produto&gt;"/>
           </AuxValues>
         </Component>
