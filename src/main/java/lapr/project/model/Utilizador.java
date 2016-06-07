@@ -273,9 +273,9 @@ public class Utilizador {
      * false.
      */
     public boolean validaPassword(String password) {
-//        if(password == null || password.isEmpty() || new PasswordValidator().validate(password) == false){
-//            return false;
-//        }
+        if(password == null || password.isEmpty() || new PasswordValidator().validate(password) == false){
+            return false;
+        }
         return true;
     }
 

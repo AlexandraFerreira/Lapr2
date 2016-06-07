@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListaUtilizadores>
+	<Utilizadores>
+		<Utilizador>
+			<Username>Alex</Username>
+			<Nome>Alexandra</Nome>
+			<Email>1140388@isep.ipp.pt</Email>
+			<Password>pass</Password>
+		</Utilizador>
+		<Utilizador>
+			<Username>thing@marvel.com</Username>
+			<Nome>The Thing</Nome>
+			<Email>thing@marvel.com</Email>
+			<Password>stony.and.big.123</Password>
+		</Utilizador>
+		<Utilizador>
+			<Username>elastigirl</Username>
+			<Nome>Helen Parr</Nome>
+			<Email>elastigirl@disney.com</Email>
+			<Password>str-ech</Password>
+		</Utilizador>
+	</Utilizadores>
+</ListaUtilizadores>
+	
