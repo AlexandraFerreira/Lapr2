@@ -14,14 +14,14 @@ import lapr.project.model.*;
 public class AlterarCandidaturaController {
     
     private CentroExposicoes empresa;
-    private Candidatura cand;
+    private CandidaturaAExposicao cand;
     private Exposicao expo;
 
     public AlterarCandidaturaController(CentroExposicoes empresa) {
         this.empresa = empresa;
     }
 
-    public Candidatura getCandidatura(String strID) {
+    public CandidaturaAExposicao getCandidatura(String strID) {
         cand = expo.getRegistoCandidaturas().getCandidatura(strID);
         return cand;
     }
@@ -29,7 +29,7 @@ public class AlterarCandidaturaController {
     public boolean setDados(String nome, String morada, int telemovel, double area,
             int quantidade, ListaProdutos produtos, Demonstracao demo) {
         
-        Candidatura cClone = cand.clone();
+        CandidaturaAExposicao cClone = cand.clone();
         
         cClone.setNomeEmp(nome);
         cClone.setMorada(morada);

@@ -20,7 +20,7 @@ public class JanelaMenu extends JFrame {
 
     private CentroExposicoes empresa;
     private Utilizador u;
-    private Candidatura c;
+    private CandidaturaAExposicao c;
     private RegistarCandidaturaController controller;
     private JButton btnUC1, btnUC2, btnUC3, btnUC4, btnUC5, btnUC6, btnUC7, btnUC8, btnUC9, btnLogout;
     private JFrame frameInicial;

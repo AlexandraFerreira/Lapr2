@@ -6,11 +6,11 @@
 package lapr.project.model;
 
 /**
- * Esta classe tem como finalidade a construcao de objetos do tipo Candidatura.
+ * Esta classe tem como finalidade a construcao de objetos do tipo CandidaturaAExposicao.
  *
  * @author Cristiano Melo
  */
-public class Candidatura {
+public class CandidaturaAExposicao {
 
     /**
      * Declaracao da variavel com area Pretendida.
@@ -38,7 +38,7 @@ public class Candidatura {
     private int telefone;
 
     /**
-     * A lista de Produtos de uma Candidatura.
+     * A lista de Produtos de uma CandidaturaAExposicao.
      */
     private ListaProdutos listProdutos;
 
@@ -81,8 +81,8 @@ public class Candidatura {
      * @param morada variavel que indica a morada da empresa.
      * @param telefone variavel que indica telemovel da empresa.
      */
-    public Candidatura(String nomeEmp, String morada, int telefone, double areaPretendida,
-            ListaProdutos produtos, int quantConvites) {
+    public CandidaturaAExposicao(String nomeEmp, String morada, int telefone, double areaPretendida,
+        ListaProdutos produtos, int quantConvites) {
         setNomeEmp(nomeEmp);
         setMorada(morada);
         setTelefone(telefone);
@@ -94,7 +94,7 @@ public class Candidatura {
     /**
      * Construtor vazio de Candidatura que inicia as variaveis por omissao.
      */
-    public Candidatura() {
+    public CandidaturaAExposicao() {
         this.areaPretendida = AREA_POR_OMISSAO;
         this.quatConvites = QUANT_CONVITES_POR_OMISSAO;
         this.nomeEmp = NOME_EMPRESA_POR_OMISSAO;
@@ -233,9 +233,9 @@ public class Candidatura {
     }
 
     /**
-     * Devolve a descrição textual da Candidatura.
+     * Devolve a descrição textual da CandidaturaAExposicao.
      *
-     * @return caraterísticas da Candidatura.
+     * @return caraterísticas da CandidaturaAExposicao.
      */
     @Override
     public String toString() {
@@ -245,11 +245,11 @@ public class Candidatura {
     }
 
     /**
-     * Verifica se uma instancia de Candidatura é igual à outra.
+     * Verifica se uma instancia de CandidaturaAExposicao é igual à outra.
      *
-     * @param outroObjeto o objeto a comparar com a Candidatura.
-     * @return true se o objeto recebido representar outra Candidatura
-     * equivalente à Candidatura. Caso contrário, retorna false.
+     * @param outroObjeto o objeto a comparar com a CandidaturaAExposicao.
+     * @return true se o objeto recebido representar outra CandidaturaAExposicao
+ equivalente à CandidaturaAExposicao. Caso contrário, retorna false.
      */
     @Override
     public boolean equals(Object outroObjeto) {
@@ -260,7 +260,7 @@ public class Candidatura {
             return false;
         }
 
-        Candidatura outraCandidatura = (Candidatura) outroObjeto;
+        CandidaturaAExposicao outraCandidatura = (CandidaturaAExposicao) outroObjeto;
 
         return nomeEmp.equalsIgnoreCase(outraCandidatura.nomeEmp)
                 && morada.equalsIgnoreCase(outraCandidatura.morada)
@@ -277,9 +277,9 @@ public class Candidatura {
     }
 
     /**
-     * Validação do nome da empresa da Candidatura.
+     * Validação do nome da empresa da CandidaturaAExposicao.
      *
-     * @param nome o nome da empresa da Candidatura
+     * @param nome o nome da empresa da CandidaturaAExposicao
      * @return true se o objeto recebido for válido. Caso contrário, retorna
      * false.
      */
@@ -303,13 +303,13 @@ public class Candidatura {
     }
 
     /**
-     * Constroi uma instancia cópia da Candidatura.
+     * Constroi uma instancia cópia da CandidaturaAExposicao.
      *
-     * @return cópia da Candidatura
+     * @return cópia da CandidaturaAExposicao
      */
     @Override
-    public Candidatura clone() {
-        return new Candidatura(this.getNomeEmp(), this.getMorada(),
+    public CandidaturaAExposicao clone() {
+        return new CandidaturaAExposicao(this.getNomeEmp(), this.getMorada(),
                 this.getTelefone(), this.getAreaPretendida(), this.getProdutos(), this.getQuatConvites());
     }
 
