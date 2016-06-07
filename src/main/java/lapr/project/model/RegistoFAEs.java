@@ -15,32 +15,56 @@ import java.util.List;
 public class RegistoFAEs {
     /**
      * Lista de FAEs do sistema
-     */
-    List<FAE> listFAEs;
+    */
+    List<FAE> listFAE;
     
-     public RegistoFAEs(){
-        listFAEs=new ArrayList<>();
+    /**
+     * Este construtor cria uma nova lista de FAE's
+    */
+    public RegistoFAEs(){
+        listFAE=new ArrayList<>();
     }
     
-     public FAE novoFAE(Exposicao exposicao, String nome, String email, String username, String password){
-        return new FAE(exposicao, nome, email, username, password);
+    /**
+     * Este construtor inicializa a lista de FAE's com a lista enviada por
+     * parâmetro
+     *
+     * @param listFAE que guarda uma lista de FAE's
+     */
+     public RegistoFAEs(List<FAE> listFAE){
+        this.listFAE = listFAE;
     }
      
-    /* public boolean equals(Object outroObjeto) {
-        if (this == outroObjeto) {
-            return true;
+    /**
+     * @return a lista de FAE's
+    */
+    public List<FAE> getListFAEs() {
+        for (FAE fae : listFAE) {
+            if (fae != null) {
+                listFAE.add(fae);
+            }
         }
-        if (outroObjeto == null || this.getClass() != outroObjeto.getClass()) {
-            return false;
+        return listFAE;
+    }
+     
+    /**
+     * Este metodo adiciona um novo FAE à lista e cria um novo FAE
+     * @param fae a adicionar
+    */
+    private void addFAE(FAE fae) {
+        if (validaListaFAEs(fae)) {
+            FAE f=fae;
+            listFAE.add(fae);
         }
-
-        FAE outroFAE = (FAE) outroObjeto;
-
-        return titulo.equalsIgnoreCase(outraExposicao.titulo)
-                && text_descritivo.equalsIgnoreCase(outraExposicao.text_descritivo)
-                && dataInicio == outraExposicao.dataInicio
-                && dataFim == outraExposicao.dataFim
-                && local.equalsIgnoreCase(outraExposicao.local)
-                && lista_Organizadores == outraExposicao.lista_Organizadores;
-    }*/
+    }
+       
+    /**
+     * Este método valida o FAE
+     * @param fae a ser validado
+     * @return se o FAE é válido (true ou false)
+    */
+    private boolean validaListaFAEs(FAE fae) {
+        return listFAE.contains(fae);
+    }
+     
 }

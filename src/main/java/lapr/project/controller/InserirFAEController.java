@@ -21,6 +21,8 @@ public class InserirFAEController {
     /**
      * Constrói uma instância de DefinirFAE, passando por
      * parâmetro uma exposicao e um utilizador (futuro FAE).
+     * @param exposicao
+     * @param utilizador
      */
     public InserirFAEController(Exposicao exposicao, Utilizador utilizador){
         this.exposicao = exposicao;
