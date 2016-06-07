@@ -13,7 +13,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import lapr.project.controller.RegistarCandidaturaController;
-import lapr.project.date.Data;
+import lapr.project.utils.Data;
 import lapr.project.model.Candidatura;
 import lapr.project.model.CentroExposicoes;
 import lapr.project.model.Exposicao;

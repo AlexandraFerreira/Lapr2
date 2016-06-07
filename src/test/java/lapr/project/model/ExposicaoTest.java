@@ -8,7 +8,7 @@ package lapr.project.model;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import lapr.project.date.Data;
+import lapr.project.utils.Data;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
