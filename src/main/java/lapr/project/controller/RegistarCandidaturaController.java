@@ -9,7 +9,10 @@ import java.util.List;
 import lapr.project.model.Candidatura;
 import lapr.project.model.Exposicao;
 import lapr.project.model.CentroExposicoes;
+import lapr.project.model.Demonstracao;
+import lapr.project.model.ListaDemonstracoes;
 import lapr.project.model.ListaProdutos;
+import lapr.project.model.Produto;
 import lapr.project.model.RegistoCandidatura;
 
 /**
@@ -19,19 +22,31 @@ import lapr.project.model.RegistoCandidatura;
 public class RegistarCandidaturaController {
 
     /**
-     * Variável que cria uma instância de CentroExposicoes
+     * Variável que cria uma instância de CentroExposicoes.
      */
     private CentroExposicoes ce;
+    /**
+     * Variável que cria uma instância de RegistoCandidatura.
+     */
     private RegistoCandidatura rcandidatura;
+    /**
+     * Variável que cria uma instância de Candidatura.
+     */
     private Candidatura c;
-    
+
+    /**
+     * Construtor com o parâmetro centro de exposições.
+     *
+     * @param ce
+     */
     public RegistarCandidaturaController(CentroExposicoes ce) {
         this.ce = ce;
     }
-    
-    public void addProduto(String designacao){
-        c.getProdutos().addProduto(designacao);
+
+    public void addProduto(Produto produto) {
+        c.getProdutos().addProduto(produto);
     }
+
     /**
      * Método que retorna a lista de exposições
      *
@@ -79,4 +94,31 @@ public class RegistarCandidaturaController {
         return c;
     }
 
+    /**
+     * Métodoq que retorna a lista de demonstrações.
+     *
+     * @return lista de demonstrções.
+     */
+    public ListaDemonstracoes getListaDemonstracao() {
+        Exposicao e = ce.getExposicoes();
+        return e.getListaDemonstracoes();
+    }
+
+    /**
+     * Método que permite guardar uma demonstração na lista de demonstrações
+     * numa candidatura
+     *
+     * @param d
+     */
+    public void guardarDemonstracao(Demonstracao d) {
+        c.guardarDemonstracao(d);
+    }
+    /**
+     * Método que regista a candidatura.
+     * @param rcandidatura 
+     */
+    public boolean registaCandidatura(Candidatura c){
+        return rcandidatura.registaCandidatura(c);
+    }
+    
 }

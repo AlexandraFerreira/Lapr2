@@ -6,6 +6,7 @@ import java.util.List;
 import lapr.project.date.Data;
 import lapr.project.model.CentroExposicoes;
 import lapr.project.model.Exposicao;
+import lapr.project.model.Organizador;
 import lapr.project.model.RegistoUtilizadores;
 import lapr.project.model.Utilizador;
 
@@ -26,6 +27,11 @@ public class InserirExposicaoController {
      * A instância de exposição a adicionar ao centro de exposições.
      */
     private Exposicao exposicao;
+    
+    /**
+     * O registo de utilizadores.
+     */
+    private RegistoUtilizadores ru;
 
     /**
      * Constrói uma instância de InserirExposicaoController, passando por
@@ -60,13 +66,23 @@ public class InserirExposicaoController {
      * @param subFim a data de fim de submissão da exposição
      * @param local o local da exposição
      */
-    public void setDados(String titulo, String descritivo, Data dataInicio, Data dataFim,
+    public Exposicao setDados(String titulo, String descritivo, Data dataInicio, Data dataFim,
             Data subInicio, Data subFim, String local) {
         this.exposicao.setTitulo(titulo);
         this.exposicao.setDescritivo(descritivo);
         this.exposicao.setPeriodoRealizacao(dataInicio, dataFim);
         this.exposicao.setPeriodoSubmissao(subInicio, subFim);
         this.exposicao.setLocal(local);
+        
+        return exposicao;
+    }
+
+    public Exposicao getExposicao() {
+        return exposicao;
+    }
+    
+    public void setExposicao(Exposicao e) {
+        this.exposicao = e;
     }
 
     /**
@@ -87,11 +103,28 @@ public class InserirExposicaoController {
      * instância de Utilizador. Caso o utilizador passado por parâmetro não seja
      * válido, devolve erro.
      *
-     * @param u o utilizador a adicionar à lista de organizadores de uma
-     * exposição
+     * @param strId o id do Utilizador a adicionar
+     * @return true se for adicionado, caso contrário devolve falso
      */
-    public void addOrganizador(Utilizador u) {
-        this.exposicao.getListaOrganizadores().addOrganizador(u);
+    public boolean addOrganizador(String strId) {
+        ru = centr_expos.getRegistoUtilizadores();
+        Utilizador u = ru.getUtilizador(strId);
+        if (u == null) {
+            System.out.println("Não existe Utilizador com esse username!");
+            return false;
+        } else {
+            return this.exposicao.getListaOrganizadores().addOrganizador(u);
+        }        
+    }
+    
+    /**
+     * Remove o organizador recebido por parêmetro.
+     * 
+     * @param o o organizador a remover
+     * @return true se for removido caso contrário devolve false
+     */
+    public boolean removerOrganizador(Organizador o) {
+        return exposicao.getListaOrganizadores().removeOrganizador(o);
     }
 
     /**
@@ -112,8 +145,8 @@ public class InserirExposicaoController {
      * @return true se exposição for válida (adicionando-a ao centro de
      * exposições) ou false caso não seja válida
      */
-    public void registaExposicao() {
-         this.centr_expos.getRegistoExposicoes().registaExposicao(exposicao);
+    public boolean registaExposicao() {
+         return this.centr_expos.getRegistoExposicoes().registaExposicao(exposicao);
     }
     
     public RegistoUtilizadores getListaUtilizadores() {

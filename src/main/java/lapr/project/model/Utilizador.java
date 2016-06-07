@@ -7,6 +7,7 @@ package lapr.project.model;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import lapr.project.utils.PasswordValidator;
 
 /**
  * Classe Utilizador, com finalidade de construção de objectos do tipo
@@ -49,7 +50,7 @@ public class Utilizador {
     /**
      * O e-mail do utilizador por omissão.
      */
-    private static final String EMAIL_POR_OMISSAO = "Sem email";
+    private static final String EMAIL_POR_OMISSAO = "naotem@naotem.naotem";
 
     /**
      * O username do utilizador por omissão.
@@ -272,7 +273,10 @@ public class Utilizador {
      * false.
      */
     public boolean validaPassword(String password) {
-        return !(password == null || password.isEmpty() || password.length() < 4);
+//        if(password == null || password.isEmpty() || new PasswordValidator().validate(password) == false){
+//            return false;
+//        }
+        return true;
     }
 
     /**
@@ -294,7 +298,7 @@ public class Utilizador {
      */
     @Override
     public Utilizador clone() {
-        return new Utilizador(this.getNome(), this.getUsername(), this.getPassword(), this.getEmail());
+        return new Utilizador(this.getNome(), this.getEmail(), this.getUsername(), this.getPassword());
     }
 
 }

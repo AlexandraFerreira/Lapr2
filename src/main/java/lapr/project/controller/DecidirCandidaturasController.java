@@ -30,7 +30,8 @@ public class DecidirCandidaturasController {
     public List<Candidatura> getListaCandidaturasExposicao() {
         for (Exposicao listaExposicoes : m_lExposicoes) {
 
-        }
+        }//TODO
+        return null;
     }
 
     /**
@@ -41,7 +42,8 @@ public class DecidirCandidaturasController {
      * @return lista de candidaturas por decidir de um FAE
      */
     public List<Candidatura> getListaCandidaturasPorDecidir(FAE fae) {
-
+        return null;//TODO
+        
     }
 
     /**
@@ -66,7 +68,7 @@ public class DecidirCandidaturasController {
      * @return registo da decisao (decisao fica guardada no sistema)
      */
     public Decisao registaDecisao() {
-
+        return null;//TODO
     }
 
     /**
@@ -76,6 +78,6 @@ public class DecidirCandidaturasController {
      * @return informação da candidatura por decidir
      */
     public String getInformacaoCandidaturaPorDecidir(FAE fae) {
-
+        return null; //TODO
     }
 }

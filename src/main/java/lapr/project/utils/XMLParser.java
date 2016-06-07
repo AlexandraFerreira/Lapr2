@@ -14,6 +14,7 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.StringWriter;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -110,4 +111,5 @@ public class XMLParser {
 
 		transformer.transform(source, result);
 	}
+
 }

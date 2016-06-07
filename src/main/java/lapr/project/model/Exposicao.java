@@ -50,7 +50,7 @@ public class Exposicao {
      * A lista de pessoas responsáveis pela realização da Exposição.
      */
     ListaOrganizadores lista_Organizadores;
-    
+
     /**
      * Registo de candidaturas da Exposição.
      */
@@ -90,10 +90,14 @@ public class Exposicao {
      * O local da realização da Exposição por omissão.
      */
     private static final String LOCAL_POR_OMISSAO = "Sem local";
-
+    /**
+     * Declaração da variável lista de demonstrações
+     */
+    ListaDemonstracoes lista_Demonstracoes;
     /**
      * Constrói uma instância de Exposição com todos os valores "vazios".
      */
+    
     public Exposicao() {
         setTitulo(TITULO_POR_OMISSAO);
         setDescritivo(DESCRITIVO_POR_OMISSAO);
@@ -120,6 +124,7 @@ public class Exposicao {
         setDataInicio(dataInicio);
         setDataFim(dataFim);
         setLocal(local);
+        this.lista_Demonstracoes = new ListaDemonstracoes();
     }
 
     /**
@@ -145,14 +150,14 @@ public class Exposicao {
         setDataSubFim(subFim);
         setLocal(local);
     }
-    
+
     /**
      * Devolve o Registo de Candidaturas.
      *
      * @return Registo de Candidaturas.
      */
-    public RegistoCandidatura getRegistoCandidaturas(){
-        return registoCandidatura; 
+    public RegistoCandidatura getRegistoCandidaturas() {
+        return registoCandidatura;
     }
 
     /**
@@ -334,6 +339,24 @@ public class Exposicao {
         }
         this.local = local;
     }
+    
+    /**
+     * Modifica a Lista de Organizadores.
+     *
+     * @param lo a lista de Organizadores
+     */
+    public void setListaOrganizadores(ListaOrganizadores lo) {
+        lista_Organizadores = lo;
+    }
+    
+    /**
+     * Modifica a Lista de Demonstracoes.
+     *
+     * @param ld a lista de Demonstracoes
+     */
+    public void setListaDemonstracoes(ListaDemonstracoes ld) {
+        lista_Demonstracoes = ld;
+    }
 
     /**
      * Devolve a descrição textual da Exposição.
@@ -348,12 +371,12 @@ public class Exposicao {
                 this.titulo, this.text_descritivo, this.dataInicio.toDiaMesAnoString(),
                 this.dataFim.toDiaMesAnoString(), this.local);
 
-        for (Organizador org : this.lista_Organizadores) {
+        for (Organizador org : this.lista_Organizadores.getListaOrganizadores()) {
             sTxt += String.format("%s \n", org.toString());
         }
 
         return sTxt;
-    }
+        }
 
     /**
      * Método que valida a Exposição.
@@ -362,8 +385,6 @@ public class Exposicao {
      * false.
      */
     public boolean valida() {
-        this.lista_Organizadores = new ListaOrganizadores();
-
         return lista_Organizadores.valida();
     }
 
@@ -403,5 +424,21 @@ public class Exposicao {
         RegistoCandidatura rc = new RegistoCandidatura();
         return rc;
     }
+        /**
+     * Métod que permite devolver a lista de demonstracoes
+     *
+     * @return a lista de demonstrações
+     */
+    public ListaDemonstracoes getListaDemonstracoes() {
+        return lista_Demonstracoes;
+    }
+    public String toStringExpo() {
+        String sTxt;
+        sTxt = String.format("Título: %s; Texto Descritivo: %s; Data de Início: %s;"
+                + " Data de Fim: %s; Local: %s.",
+                this.titulo, this.text_descritivo, this.dataInicio.toDiaMesAnoString(),
+                this.dataFim.toDiaMesAnoString(), this.local);
 
+        return sTxt;
+        }
 }

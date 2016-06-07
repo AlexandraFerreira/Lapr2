@@ -66,6 +66,10 @@ public class Candidatura {
      * Declaracao da variavel telefone por omissao.
      */
     private static int TELEFONE_POR_OMISSAO = 220000000;
+    /**
+     * Declaração da lista de demonstrações.
+     */
+    private ListaDemonstracoes demo;
 
     /**
      * Construtor completo que inicia a Candidatura com todos os elementos da
@@ -290,8 +294,12 @@ public class Candidatura {
      * false.
      */
     public boolean valida() {
-        System.out.println("Utilizador em validação: " + this.toString());
-        return validaNomeEmp(nomeEmp);
+        System.out.println("Candidatura em validação: " + this.toString());
+        if (validaNomeEmp(nomeEmp) == true || validaMorada(morada) == true
+                || validaContato(telefone) || validaArea(areaPretendida) || validaQuantidade(quatConvites)) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -303,5 +311,49 @@ public class Candidatura {
     public Candidatura clone() {
         return new Candidatura(this.getNomeEmp(), this.getMorada(),
                 this.getTelefone(), this.getAreaPretendida(), this.getProdutos(), this.getQuatConvites());
+    }
+
+    /**
+     * Método que guarda a demonstração na lista de demonstrações
+     *
+     * @param d demonstração
+     */
+    public void guardarDemonstracao(Demonstracao d) {
+        demo.add(d);
+    }
+
+    /**
+     * Método que valida a morada de uma candidatura.
+     *
+     * @param Morada
+     * @return
+     */
+
+    public boolean validaMorada(String Morada) {
+        return !(morada == null || morada.trim().isEmpty() || morada.matches(".*\\d+.*"));
+    }
+
+    /**
+     * Método que valida o contato de uma candidatura.
+     *
+     * @param telefone
+     * @return
+     */
+
+    public boolean validaContato(int telefone) {
+        return !(telefone > 100000000 & telefone < 999999999);
+    }
+    /**
+     * Método que valida a área pretendida para a candidatura.
+     * @param areaPretendida
+     * @return 
+     */
+
+    public boolean validaArea(double areaPretendida) {
+        return !(areaPretendida<=0);
+    }
+
+    public boolean validaQuantidade(int quatConvites) {
+        return !(quatConvites<=0);
     }
 }

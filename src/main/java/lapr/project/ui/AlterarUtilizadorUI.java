@@ -5,6 +5,8 @@
  */
 package lapr.project.ui;
 
+import java.awt.Frame;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import lapr.project.controller.AlterarUtilizadorController;
 import lapr.project.model.CentroExposicoes;
@@ -19,16 +21,20 @@ public class AlterarUtilizadorUI extends javax.swing.JFrame {
     private CentroExposicoes empresa;
     private Utilizador utilizador;
     private AlterarUtilizadorController controller;
+    JFrame parent;
 
     /**
      * Creates new form AlterarUtilizadorUI
      */
-    public AlterarUtilizadorUI(CentroExposicoes empresa, Utilizador u) {
+    public AlterarUtilizadorUI(JFrame parent,CentroExposicoes empresa, Utilizador u) {
         this.empresa = empresa;
         this.utilizador = u;
         this.controller = new AlterarUtilizadorController(empresa);
-
+        this.parent=parent;
+        parent.setFocusableWindowState(false);
+        parent.setEnabled(false);
         initComponents();
+        this.setVisible(true);
     }
 
     /**
@@ -227,9 +233,14 @@ public class AlterarUtilizadorUI extends javax.swing.JFrame {
                     panel, "Preencha todos os campos!", "Alterar Utilizador",
                     JOptionPane.ERROR_MESSAGE);
         }
+        
+        this.parent.setFocusableWindowState(true);
+        this.parent.setEnabled(true);
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        this.parent.setFocusableWindowState(true);
+        this.parent.setEnabled(true);
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
@@ -239,6 +250,9 @@ public class AlterarUtilizadorUI extends javax.swing.JFrame {
         txtUsername.setText(null);
         txtPass.setText(null);
         txtRepetirPass.setText(null);
+        
+        this.parent.setFocusableWindowState(true);
+        this.parent.setEnabled(true);
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private javax.swing.JPanel panel;

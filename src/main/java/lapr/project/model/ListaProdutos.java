@@ -17,7 +17,7 @@ public class ListaProdutos {
     /**
      * A lista de Produtos.
      */
-    List<Produto> listaProdutos;
+    private List<Produto> listaProdutos;
 
     /**
      * Constrói uma instância de ListaProdutos com todos os valores "vazios".
@@ -32,12 +32,12 @@ public class ListaProdutos {
      *
      * @param p o produto a adicionar
      */
-    public void addProduto(String p) {
-        Produto prod = new Produto();
-        prod.setNome(p);
+    public boolean addProduto(Produto prod) {
+        
         if (validaProduto(prod)) {
-            add(prod);
+            return add(prod);
         }
+        return false;
     }
 
     /**
@@ -60,7 +60,7 @@ public class ListaProdutos {
      * @return true caso seja válido, caso contrário devolve false.
      */
     public boolean valida(ListaProdutos lp) {
-        for (Produto prod : this.listaProdutos) {
+        for (Produto prod : this.getListaProdutos()) {
             if (prod.valida()) {
                 return true;
             }
@@ -76,7 +76,41 @@ public class ListaProdutos {
      * @return true caso seja válido, caso contrário devolve false.
      */
     boolean add(Produto p) {
-        return this.listaProdutos.add(p);
+        return this.getListaProdutos().add(p);
+    }
+
+    /**
+     * @return the listaProdutos
+     */
+    public List<Produto> getListaProdutos() {
+        return listaProdutos;
+    }
+
+    /**
+     * @param listaProdutos the listaProdutos to set
+     */
+    public void setListaProdutos(List<Produto> listaProdutos) {
+        this.listaProdutos = listaProdutos;
+    }
+
+    public int tamanho() {
+        return this.listaProdutos.size();
+    }
+
+    public Produto obterProduto(int indice) {
+        return this.getListaProdutos().get(indice);
+    }
+
+    public int indiceDe(Produto produto) {
+       return this.getListaProdutos().indexOf(produto);
+    }
+
+    public boolean removeProduct(Produto produto) {
+        return this.getListaProdutos().remove(produto);
+    }
+
+    public boolean contem(Produto produto) {
+        return this.getListaProdutos().contains(produto);
     }
 
 }
