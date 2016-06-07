@@ -12,6 +12,7 @@ import lapr.project.model.CentroExposicoes;
 import lapr.project.model.Demonstracao;
 import lapr.project.model.ListaDemonstracoes;
 import lapr.project.model.ListaProdutos;
+import lapr.project.model.Produto;
 import lapr.project.model.RegistoCandidatura;
 
 /**
@@ -42,8 +43,8 @@ public class RegistarCandidaturaController {
         this.ce = ce;
     }
 
-    public void addProduto(String designacao) {
-        c.getProdutos().addProduto(designacao);
+    public void addProduto(Produto produto) {
+        c.getProdutos().addProduto(produto);
     }
 
     /**

@@ -6,7 +6,11 @@
 package lapr.project.ui;
 
 import java.awt.Dimension;
+import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import lapr.project.controller.RegistarCandidaturaController;
 import lapr.project.date.Data;
@@ -17,33 +21,33 @@ import lapr.project.model.ListaProdutos;
 import lapr.project.model.RegistoCandidatura;
 import lapr.project.model.Utilizador;
 
- 
-
-
-
-
 /**
  *
  * @author Fábio Sousa
  */
 public class RegistarCandidaturaUI extends javax.swing.JFrame {
+
     private RegistarCandidaturaController controller;
-    private  Candidatura c;
+    private Candidatura c;
+
     /**
      * Contrutor registar candidatura com os seguintes parâmetros:
+     *
      * @param empresa
      * @param u
      * @param controller
-     * @param c 
+     * @param c
      */
-    public RegistarCandidaturaUI(CentroExposicoes empresa, Utilizador u, RegistarCandidaturaController controller,Candidatura c) {
-        this.controller=controller;
+    public RegistarCandidaturaUI(CentroExposicoes empresa, Utilizador u, RegistarCandidaturaController controller, Candidatura c) {
+        this.controller = controller;
+        this.c = c;
         initComponents();
+        listaExpo();
         setVisible(true);
         pack();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.c = c;
+        
     }
 
     /**
@@ -71,7 +75,7 @@ public class RegistarCandidaturaUI extends javax.swing.JFrame {
         btnLimpar = new javax.swing.JButton();
         btnDemons = new javax.swing.JButton();
         btnConcluir = new javax.swing.JButton();
-        OpcaoExposicao = new javax.swing.JComboBox<>();
+        ExposicaoBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -206,10 +210,9 @@ public class RegistarCandidaturaUI extends javax.swing.JFrame {
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        OpcaoExposicao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        OpcaoExposicao.addActionListener(new java.awt.event.ActionListener() {
+        ExposicaoBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OpcaoExposicaoActionPerformed(evt);
+                ExposicaoBoxActionPerformed(evt);
             }
         });
 
@@ -221,15 +224,15 @@ public class RegistarCandidaturaUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addComponent(OpcaoExposicao, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(40, 40, 40)
+                        .addComponent(ExposicaoBox, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(30, Short.MAX_VALUE)
-                .addComponent(OpcaoExposicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ExposicaoBox, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -251,20 +254,20 @@ public class RegistarCandidaturaUI extends javax.swing.JFrame {
     }//GEN-LAST:event_txtContatoActionPerformed
 
     private void butProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butProdutoActionPerformed
-        // TODO add your handling code here:
+       ProdutosUI p = new ProdutosUI(RegistarCandidaturaUI.this, true ,controller);
     }//GEN-LAST:event_butProdutoActionPerformed
 
     private void btnConcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConcluirActionPerformed
         int contato = Integer.parseInt(txtContato.getText());
         double area = Double.parseDouble(txtArea.getText());
         ListaProdutos lp = new ListaProdutos();
-        lp=null;
+        lp = null;
         int quant = Integer.parseInt(txtQuant.getText());
-        c = controller.insereDados(txtNome.getText(),txtMorada.getText(),contato,area,lp,quant);
-        if (controller.registaCandidatura(c)==true) {
-            
+        c = controller.insereDados(txtNome.getText(), txtMorada.getText(), contato, area, lp, quant);
+        if (controller.registaCandidatura(c) == true) {
+
             dispose();
-            
+
         }
     }//GEN-LAST:event_btnConcluirActionPerformed
 
@@ -276,24 +279,14 @@ public class RegistarCandidaturaUI extends javax.swing.JFrame {
         txtMorada.setText("");
     }//GEN-LAST:event_btnLimparActionPerformed
 
-    private void OpcaoExposicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpcaoExposicaoActionPerformed
-
-        List<Exposicao> lExposicoes = controller.getListaExposicoes();
-        Object objExposicao;//TODO
-        String titulo= "titulo";
-        String textoDescritivo = "texto descritivo";
-        Data dataInicio = new Data();
-        Data dataFim= new Data();;
-        String local = "local";
-        Exposicao e = new Exposicao(titulo, textoDescritivo, dataInicio, dataFim, local);
-        lExposicoes.add(e);
-        lExposicoes.add(null);
+    private void ExposicaoBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExposicaoBoxActionPerformed
         
-    }//GEN-LAST:event_OpcaoExposicaoActionPerformed
+     
+    }//GEN-LAST:event_ExposicaoBoxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> OpcaoExposicao;
+    private javax.swing.JComboBox<String> ExposicaoBox;
     private javax.swing.JButton btnConcluir;
     private javax.swing.JButton btnDemons;
     private javax.swing.JButton btnLimpar;
@@ -311,4 +304,24 @@ public class RegistarCandidaturaUI extends javax.swing.JFrame {
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtQuant;
     // End of variables declaration//GEN-END:variables
+
+public void listaExpo(){
+ List<Exposicao> lExposicoes=new ArrayList<>();
+////         = controller.getListaExposicoes();
+        Object objExposicao;//TODO
+        String titulo = "titulo";
+        String textoDescritivo = "texto descritivo";
+        Data dataInicio = new Data();
+        Data dataFim = new Data();;
+        String local = "local";
+        Exposicao e = new Exposicao(titulo, textoDescritivo, dataInicio, dataFim, local);
+        lExposicoes.add(e);
+        Object[] es =  lExposicoes.toArray();
+        String [] expo=new String[es.length];
+        for (int i = 0; i < expo.length; i++) {
+        expo[i]= ((Exposicao)es[i]).toStringExpo();
+    }
+        ComboBoxModel<String> model = new DefaultComboBoxModel<>(expo);
+        ExposicaoBox.setModel(model);
+}
 }

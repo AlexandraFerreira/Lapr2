@@ -376,7 +376,7 @@ public class Exposicao {
         }
 
         return sTxt;
-    }
+        }
 
     /**
      * Método que valida a Exposição.
@@ -432,5 +432,13 @@ public class Exposicao {
     public ListaDemonstracoes getListaDemonstracoes() {
         return lista_Demonstracoes;
     }
-    
+    public String toStringExpo() {
+        String sTxt;
+        sTxt = String.format("Título: %s; Texto Descritivo: %s; Data de Início: %s;"
+                + " Data de Fim: %s; Local: %s.",
+                this.titulo, this.text_descritivo, this.dataInicio.toDiaMesAnoString(),
+                this.dataFim.toDiaMesAnoString(), this.local);
+
+        return sTxt;
+        }
 }
