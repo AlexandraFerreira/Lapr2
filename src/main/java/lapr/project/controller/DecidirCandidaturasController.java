@@ -16,7 +16,7 @@ import lapr.project.model.*;
  */
 public class DecidirCandidaturasController {
 
-    private List<Candidatura> m_lCandidaturas;
+    private List<CandidaturaAExposicao> m_lCandidaturas;
     private List<Exposicao> m_lExposicoes;
     private Decisao d;
     private String justificacao;
@@ -27,7 +27,7 @@ public class DecidirCandidaturasController {
      *
      * @return a lista de candidaturas a uma determinada exposicao
      */
-    public List<Candidatura> getListaCandidaturasExposicao() {
+    public List<CandidaturaAExposicao> getListaCandidaturasExposicao() {
         for (Exposicao listaExposicoes : m_lExposicoes) {
 
         }//TODO
@@ -41,7 +41,7 @@ public class DecidirCandidaturasController {
      * @param fae do tipo FAE (funcionario de apoio à exposição)
      * @return lista de candidaturas por decidir de um FAE
      */
-    public List<Candidatura> getListaCandidaturasPorDecidir(FAE fae) {
+    public List<CandidaturaAExposicao> getListaCandidaturasPorDecidir(FAE fae) {
         return null;//TODO
         
     }

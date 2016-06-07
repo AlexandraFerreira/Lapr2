@@ -107,7 +107,7 @@ public class RegistoExposicoes {
      *
      * @return lista de candidaturas à exposição
      */
-    public List<Candidatura> getCandidaturasExposicao() {
+    public List<CandidaturaAExposicao> getCandidaturasExposicao() {
        return null; //TODO 
     }
 
