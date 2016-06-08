@@ -83,8 +83,8 @@ public class UtilizadorTest {
     public void testGetPassword() {
         System.out.println("getPassword");
         Utilizador instance = new Utilizador();
-        instance.setPassword("pass");
-        String expResult = "pass";
+        instance.setPassword("Pa2.");
+        String expResult = "Pa2.";
         String result = instance.getPassword();
         assertEquals(expResult, result);
     }
@@ -137,10 +137,10 @@ public class UtilizadorTest {
     @Test
     public void testSetPassword() {
         System.out.println("setPassword");
-        String password = "pass";
+        String password = "Pa2.";
         Utilizador instance = new Utilizador();
         instance.setPassword(password);
-        String expResult = "pass";
+        String expResult = "Pa2.";
         String result = instance.getPassword();
         assertEquals(expResult, result);
     }
@@ -166,8 +166,8 @@ public class UtilizadorTest {
     @Test
     public void testEquals() {
         System.out.println("equals");
-        Object outroObjeto = new Utilizador("nome", "email@email.pt", "user", "pass");
-        Utilizador instance = new Utilizador("nome", "email@email.pt", "user", "pass");
+        Object outroObjeto = new Utilizador("nome", "email@email.pt", "user", "Pa2.");
+        Utilizador instance = new Utilizador("nome", "email@email.pt", "user", "Pa2.");
         boolean expResult = true;
         boolean result = instance.equals(outroObjeto);
         assertEquals(expResult, result);
@@ -234,7 +234,7 @@ public class UtilizadorTest {
     @Test
     public void testValidaPassword() {
         System.out.println("validaPassword");
-        String password = "pass12";
+        String password = "Pa2.";
         Utilizador instance = new Utilizador();
         instance.setPassword(password);
         boolean expResult = true;
@@ -248,7 +248,7 @@ public class UtilizadorTest {
     @Test
     public void testValida() {
         System.out.println("valida");
-        Utilizador instance = new Utilizador("nome", "email12@email.pt", "u12", "pass12");
+        Utilizador instance = new Utilizador("nome", "email12@email.pt", "u12", "Pa2.");
         boolean expResult = true;
         boolean result = instance.valida();
         assertEquals(expResult, result);
@@ -260,16 +260,12 @@ public class UtilizadorTest {
     @Test
     public void testClone() {
         System.out.println("clone");
-        Utilizador instance = new Utilizador("nome", "email12@email.pt", "u12", "pass12");
+        Utilizador instance = new Utilizador("nome", "email12@email.pt", "u12", "Pa2.");
         String expResult = instance.toString();
-        System.out.println("AQUI !!!");
         Utilizador u = instance.clone();
-        System.out.println("---------------------0");
         String result = instance.clone().toString();
-        System.out.println("----------------1");
         System.out.println(expResult);
         System.out.println(result);
-        System.out.println("----------------2");
         assertEquals(expResult, result);
     }
 

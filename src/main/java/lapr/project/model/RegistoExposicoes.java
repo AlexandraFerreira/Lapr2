@@ -68,9 +68,10 @@ public class RegistoExposicoes {
      * Método que adiciona uma exposição a uma lista de exposições.
      *
      * @param e a exposição a adicionar
+     * @return a exposicao adicionada
      */
-    public void add(Exposicao e) {
-        listExposicoes.add(e);
+    public boolean add(Exposicao e) {
+        return listExposicoes.add(e);
     }
 
     /**
@@ -107,7 +108,7 @@ public class RegistoExposicoes {
      *
      * @return lista de candidaturas à exposição
      */
-    public List<Candidatura> getCandidaturasExposicao() {
+    public List<CandidaturaAExposicao> getCandidaturasExposicao() {
        return null; //TODO 
     }
 

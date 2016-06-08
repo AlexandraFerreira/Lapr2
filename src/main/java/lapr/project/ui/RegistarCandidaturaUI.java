@@ -13,8 +13,10 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import lapr.project.controller.RegistarCandidaturaController;
-import lapr.project.date.Data;
-import lapr.project.model.Candidatura;
+import lapr.project.utils.Data;
+import lapr.project.model.CandidaturaAExposicao;
+import lapr.project.utils.Data;
+import lapr.project.model.CandidaturaAExposicao;
 import lapr.project.model.CentroExposicoes;
 import lapr.project.model.Exposicao;
 import lapr.project.model.ListaProdutos;
@@ -28,7 +30,7 @@ import lapr.project.model.Utilizador;
 public class RegistarCandidaturaUI extends javax.swing.JFrame {
 
     private RegistarCandidaturaController controller;
-    private Candidatura c;
+    private CandidaturaAExposicao c;
 
     /**
      * Contrutor registar candidatura com os seguintes parâmetros:
@@ -38,7 +40,7 @@ public class RegistarCandidaturaUI extends javax.swing.JFrame {
      * @param controller
      * @param c
      */
-    public RegistarCandidaturaUI(CentroExposicoes empresa, Utilizador u, RegistarCandidaturaController controller, Candidatura c) {
+    public RegistarCandidaturaUI(CentroExposicoes empresa, Utilizador u, RegistarCandidaturaController controller, CandidaturaAExposicao c) {
         this.controller = controller;
         this.c = c;
         initComponents();

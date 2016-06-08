@@ -1,4 +1,4 @@
-package lapr.project.date;
+package lapr.project.exception;
 
 public class MesInvalidoException extends IllegalArgumentException {
 

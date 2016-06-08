@@ -234,7 +234,7 @@ public class JanelaInicial extends JFrame {
                 Utilizador u = empresa.getRegistoUtilizadores().getUtilizador(txtUsername.getText());
                 if (u == null) {
                     JOptionPane.showMessageDialog(JanelaInicial.this, "Utilizador não encontrado");
-                } else if (!u.validaPassword(txtPassword.getText())) {
+                } else if (!u.getPassword().equals(txtPassword.getText())) {
                     JOptionPane.showMessageDialog(JanelaInicial.this, "Passoword incorreta");
                 } else {
                     setVisible(false);
@@ -246,8 +246,10 @@ public class JanelaInicial extends JFrame {
             }
         }
         );
+        
         return btnLogin;
     }
+    
 
     private JButton criarBotaoCriarNovoUtilizador() {
         btnRegistar = new JButton("Novo Utilizador");

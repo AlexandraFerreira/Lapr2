@@ -15,7 +15,7 @@ public class Atribuicao {
     /**
      * Declaracao da variavel candidatura do tipo candidatura.
      */
-    private Candidatura candidatura;
+    private CandidaturaAExposicao candidatura;
     /**
      * Declaracao da variavel fae do tipo FAE.
      */
@@ -26,7 +26,7 @@ public class Atribuicao {
      * @param candidatura
      * @param fae
      */
-    public Atribuicao(Candidatura candidatura, FAE fae) {
+    public Atribuicao(CandidaturaAExposicao candidatura, FAE fae) {
         this.candidatura = candidatura;
         this.fae = fae;
     }
@@ -36,7 +36,7 @@ public class Atribuicao {
      * os construtores vazios das classes.
      */
     public Atribuicao() {
-        this.candidatura = new Candidatura();
+        this.candidatura = new CandidaturaAExposicao();
         this.fae = new FAE();
     }
 
@@ -44,7 +44,7 @@ public class Atribuicao {
      *Metodo getCandidatura que retorna uma candidatura.
      * @return
      */
-    public Candidatura getCandidatura() {
+    public CandidaturaAExposicao getCandidatura() {
         return candidatura;
     }
 
@@ -52,7 +52,7 @@ public class Atribuicao {
      * Este set candidatura atualiza os parametros de candidatura.
      * @param candidatura
      */
-    public void setCandidatura(Candidatura candidatura) {
+    public void setCandidatura(CandidaturaAExposicao candidatura) {
         this.candidatura = candidatura;
     }
 

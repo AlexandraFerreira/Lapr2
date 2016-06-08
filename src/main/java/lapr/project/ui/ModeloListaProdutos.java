@@ -23,8 +23,8 @@ public class ModeloListaProdutos extends AbstractListModel implements Serializab
      *
      * @param listaPalavrasChaves objeto do tipo ListaPalavrasChaves, que contém produtos-chave.
      */
-    public ModeloListaProdutos(ListaProdutos listaKeys) {
-        this.listaProdutos = listaKeys;
+    public ModeloListaProdutos(ListaProdutos listaProdutos) {
+        this.listaProdutos = listaProdutos;
     }
 
     /**

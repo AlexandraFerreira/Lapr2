@@ -6,7 +6,7 @@
 package lapr.project.controller;
 
 import java.util.List;
-import lapr.project.model.Candidatura;
+import lapr.project.model.CandidaturaAExposicao;
 import lapr.project.model.Exposicao;
 import lapr.project.model.CentroExposicoes;
 import lapr.project.model.Demonstracao;
@@ -30,9 +30,9 @@ public class RegistarCandidaturaController {
      */
     private RegistoCandidatura rcandidatura;
     /**
-     * Variável que cria uma instância de Candidatura.
+     * Variável que cria uma instância de CandidaturaAExposicao.
      */
-    private Candidatura c;
+    private CandidaturaAExposicao c;
 
     /**
      * Construtor com o parâmetro centro de exposições.
@@ -70,7 +70,7 @@ public class RegistarCandidaturaController {
      *
      * @return
      */
-    public Candidatura criarCandidatura() {
+    public CandidaturaAExposicao criarCandidatura() {
         c = rcandidatura.criarCandidatura();
         return c;
     }
@@ -85,7 +85,7 @@ public class RegistarCandidaturaController {
      * @param quantConvites
      * @return
      */
-    public Candidatura insereDados(String nomeEmp, String morada, int telefone, double areaPretendida, ListaProdutos lp, int quantConvites) {
+    public CandidaturaAExposicao insereDados(String nomeEmp, String morada, int telefone, double areaPretendida, ListaProdutos lp, int quantConvites) {
         c.setNomeEmp(nomeEmp);
         c.setMorada(morada);
         c.setTelefone(telefone);
@@ -117,7 +117,7 @@ public class RegistarCandidaturaController {
      * Método que regista a candidatura.
      * @param rcandidatura 
      */
-    public boolean registaCandidatura(Candidatura c){
+    public boolean registaCandidatura(CandidaturaAExposicao c){
         return rcandidatura.registaCandidatura(c);
     }
     

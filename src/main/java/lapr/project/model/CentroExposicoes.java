@@ -27,6 +27,7 @@ public class CentroExposicoes {
      * Lista de demonstrações onde se encontram as demonstrações possíveis
      */
     List<Exposicao> m_lListaExposicoes;
+    
     /**
      * Registo de utilizadores da empresa.
      */

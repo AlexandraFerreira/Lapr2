@@ -17,13 +17,13 @@ public class RegistoCandidatura {
     /**
      * Lista de Candidaturas do sistema
      */
-    List<Candidatura> listaCandidaturas;
+    ListaCandidaturas listaCandidaturas;
 
     /**
      * Constrói uma instância de RegistoCandidatura sem parâmetros.
      */
     public RegistoCandidatura() {
-        listaCandidaturas = new ArrayList<>();
+        listaCandidaturas = new ListaCandidaturas();
     }
 
     /**
@@ -32,8 +32,8 @@ public class RegistoCandidatura {
      *
      * @return
      */
-    public Candidatura criarCandidatura() {
-        return new Candidatura();
+    public CandidaturaAExposicao criarCandidatura() {
+        return new CandidaturaAExposicao();
     }
 
     /**
@@ -41,7 +41,7 @@ public class RegistoCandidatura {
      *
      * @return true or false de acordo consoante a validação da candidatura
      */
-    public boolean validaCandidatura(Candidatura c) {
+    public boolean validaCandidatura(CandidaturaAExposicao c) {
         if (c.valida()) {
             return true;
         }
@@ -51,7 +51,7 @@ public class RegistoCandidatura {
     /**
      * Método que regista a candidatura após tudo verificado
      */
-    public boolean registaCandidatura(Candidatura c) {
+    public boolean registaCandidatura(CandidaturaAExposicao c) {
         return validaCandidatura(c);
     }
 
@@ -63,23 +63,23 @@ public class RegistoCandidatura {
      * @return Um objeto do tipo candidatura, caso o mesmo exista, caso
      * contrário devolve null.
      */
-    public Candidatura getCandidatura(String id) {
-        for (Candidatura cand : this.listaCandidaturas) {
-            if (cand.getNomeEmp().equals(id)) {
-                return cand;
-            }
-        }
+    public CandidaturaAExposicao getCandidatura(String id) {
+//        for (CandidaturaAExposicao cand : this.listaCandidaturas) {
+//            if (cand.getNomeEmp().equals(id)) {
+//                return cand;
+//            }
+//        }
 
         return null;
     }
 
-    public boolean alteraCandidatura(Candidatura cOriginal, Candidatura cClone) {
+    public boolean alteraCandidatura(CandidaturaAExposicao cOriginal, CandidaturaAExposicao cClone) {
         if (cClone.valida()) {
-            List<Candidatura> lstCandidaturas = new ArrayList<Candidatura>(listaCandidaturas);
-            lstCandidaturas.remove(cOriginal);
-            lstCandidaturas.add(cClone);
+            ListaCandidaturas lstCandidaturas = new ListaCandidaturas();
+            lstCandidaturas.removeCandidatura(cOriginal);
+            lstCandidaturas.addCandidatura(cClone);
 
-            if (validaLista(lstCandidaturas)) {
+            if (lstCandidaturas.valida()) {
 
                 cOriginal.setNomeEmp(cClone.getNomeEmp());
                 cOriginal.setMorada(cClone.getMorada());
@@ -90,10 +90,5 @@ public class RegistoCandidatura {
             }
         }
         return false;
-    }
-
-    private boolean validaLista(List<Candidatura> lista) {
-        System.out.println("RegistoCandidatura: validaLista: " + lista.toString());
-        return true;
     }
 }

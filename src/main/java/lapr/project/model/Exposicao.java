@@ -1,6 +1,6 @@
 package lapr.project.model;
 
-import lapr.project.date.Data;
+import lapr.project.utils.Data;
 
 /**
  * A classe Exposição conta com varios atributos alguns deles associados a

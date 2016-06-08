@@ -8,7 +8,7 @@ package lapr.project.model;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import lapr.project.date.Data;
+import lapr.project.utils.Data;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -390,5 +390,45 @@ public class ExposicaoTest {
         ListaDemonstracoes expResult = ld;
         ListaDemonstracoes result = instance.getListaDemonstracoes();
         assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of setListaOrganizadores method, of class Exposicao.
+     */
+    @Test
+    public void testSetListaOrganizadores() {
+        System.out.println("setListaOrganizadores");
+        ListaOrganizadores lo = null;
+        Exposicao instance = new Exposicao();
+        instance.setListaOrganizadores(lo);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of setListaDemonstracoes method, of class Exposicao.
+     */
+    @Test
+    public void testSetListaDemonstracoes() {
+        System.out.println("setListaDemonstracoes");
+        ListaDemonstracoes ld = null;
+        Exposicao instance = new Exposicao();
+        instance.setListaDemonstracoes(ld);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of toStringExpo method, of class Exposicao.
+     */
+    @Test
+    public void testToStringExpo() {
+        System.out.println("toStringExpo");
+        Exposicao instance = new Exposicao();
+        String expResult = "";
+        String result = instance.toStringExpo();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 }

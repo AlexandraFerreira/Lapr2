@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import lapr.project.controller.InserirExposicaoController;
-import lapr.project.date.Data;
+import lapr.project.utils.Data;
 import lapr.project.model.CentroExposicoes;
 import lapr.project.model.Exposicao;
 import lapr.project.model.ListaOrganizadores;
