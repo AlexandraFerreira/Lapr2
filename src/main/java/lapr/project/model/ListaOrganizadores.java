@@ -138,11 +138,11 @@ public class ListaOrganizadores {
      * Método que permite consultar um Organizador da lista recebendo como
      * parâmetro a sua posição na lista
      *
-     * @param Index posição na lista
+     * @param index posição na lista
      * @return Organizador pretendido
      */
-    public Organizador obterOrganizador(int Index) {
-        return m_lOrganizadores.get(Index);
+    public Organizador obterOrganizador(int index) {
+        return m_lOrganizadores.get(index);
     }
 
     /**

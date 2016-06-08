@@ -5,8 +5,11 @@
  */
 package lapr.project.model;
 
+import java.util.ArrayList;
+
 /**
- * Esta classe tem como finalidade a construcao de objetos do tipo CandidaturaAExposicao.
+ * Esta classe tem como finalidade a construcao de objetos do tipo
+ * CandidaturaAExposicao.
  *
  * @author Cristiano Melo
  */
@@ -69,7 +72,7 @@ public class CandidaturaAExposicao {
     /**
      * Declaração da lista de demonstrações.
      */
-    private ListaDemonstracoes demo;
+    private ListaDemonstracoes listaDemos;
 
     /**
      * Construtor completo que inicia a Candidatura com todos os elementos da
@@ -82,7 +85,7 @@ public class CandidaturaAExposicao {
      * @param telefone variavel que indica telemovel da empresa.
      */
     public CandidaturaAExposicao(String nomeEmp, String morada, int telefone, double areaPretendida,
-        ListaProdutos produtos, int quantConvites) {
+            ListaProdutos produtos, int quantConvites) {
         setNomeEmp(nomeEmp);
         setMorada(morada);
         setTelefone(telefone);
@@ -249,7 +252,7 @@ public class CandidaturaAExposicao {
      *
      * @param outroObjeto o objeto a comparar com a CandidaturaAExposicao.
      * @return true se o objeto recebido representar outra CandidaturaAExposicao
- equivalente à CandidaturaAExposicao. Caso contrário, retorna false.
+     * equivalente à CandidaturaAExposicao. Caso contrário, retorna false.
      */
     @Override
     public boolean equals(Object outroObjeto) {
@@ -316,19 +319,18 @@ public class CandidaturaAExposicao {
     /**
      * Método que guarda a demonstração na lista de demonstrações
      *
-     * @param d demonstração
+     * @param d demonstração a adicionar à lista
      */
     public void guardarDemonstracao(Demonstracao d) {
-        demo.add(d);
+        listaDemos.add(d);
     }
 
     /**
      * Método que valida a morada de uma candidatura.
      *
-     * @param Morada
-     * @return
+     * @param Morada a morada a validar
+     * @return true caso seja valido, caso contrário devolve false
      */
-
     public boolean validaMorada(String Morada) {
         return !(morada == null || morada.trim().isEmpty() || morada.matches(".*\\d+.*"));
     }
@@ -336,24 +338,30 @@ public class CandidaturaAExposicao {
     /**
      * Método que valida o contato de uma candidatura.
      *
-     * @param telefone
-     * @return
+     * @param telefone o número de telefone a validar
+     * @return true caso seja valido, caso contrário devolve false
      */
-
     public boolean validaContato(int telefone) {
         return !(telefone > 100000000 & telefone < 999999999);
     }
+
     /**
      * Método que valida a área pretendida para a candidatura.
-     * @param areaPretendida
-     * @return 
+     *
+     * @param areaPretendida a área a validar
+     * @return true caso seja valido, caso contrário devolve false
      */
-
     public boolean validaArea(double areaPretendida) {
-        return !(areaPretendida<=0);
+        return !(areaPretendida <= 0);
     }
 
+    /**
+     * Método que valida o número de convites para a candidatura.
+     *
+     * @param quatConvites
+     * @return true caso seja valido, caso contrário devolve false
+     */
     public boolean validaQuantidade(int quatConvites) {
-        return !(quatConvites<=0);
+        return !(quatConvites <= 0);
     }
 }

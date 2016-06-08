@@ -108,11 +108,11 @@ public class ListaCandidaturas {
      * Método que permite consultar uma Candidatura da lista recebendo como
      * parâmetro a sua posição na lista
      *
-     * @param Index posição na lista
+     * @param index posição na lista
      * @return Candidatura pretendido
      */
-    public CandidaturaAExposicao obterCandidatura(int Index) {
-        return listaCandidaturas.get(Index);
+    public CandidaturaAExposicao obterCandidatura(int index) {
+        return listaCandidaturas.get(index);
     }
 
     /**
