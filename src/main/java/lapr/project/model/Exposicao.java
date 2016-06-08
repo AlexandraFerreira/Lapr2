@@ -441,4 +441,12 @@ public class Exposicao {
 
         return sTxt;
         }
+
+    public void listarExposicoes(Exposicao expo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void removeAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

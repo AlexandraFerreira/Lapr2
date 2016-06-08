@@ -17,7 +17,7 @@ public class InserirFAEController {
     private Utilizador utilizador;
     private Exposicao exposicao;
     private RegistoExposicoes re;
-     
+        
     /**
      * Constrói uma instância de DefinirFAE, passando por
      * parâmetro uma exposicao e um utilizador (futuro FAE).
@@ -27,12 +27,7 @@ public class InserirFAEController {
     public InserirFAEController(Exposicao exposicao, Utilizador utilizador){
         this.exposicao = exposicao;
         this.utilizador = utilizador;
-    }
-    
-    public void getRegistoExposicoes(Exposicao exposicao){
-        
-    }
-    
+    }  
     
     public FAE adicionarFAE(){
         FAE fae = new FAE(this.exposicao, this.utilizador.getNome(), this.utilizador.getEmail(), this.utilizador.getUsername(), this.utilizador.getPassword());  

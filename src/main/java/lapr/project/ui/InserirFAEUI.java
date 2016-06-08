@@ -5,7 +5,11 @@
  */
 package lapr.project.ui;
 
+import lapr.project.controller.InserirFAEController;
+import lapr.project.model.Exposicao;
+import lapr.project.model.ListaFAEs;
 import lapr.project.model.RegistoExposicoes;
+import lapr.project.model.RegistoUtilizadores;
 import lapr.project.model.Utilizador;
 
 /**
@@ -14,15 +18,27 @@ import lapr.project.model.Utilizador;
  */
 public class InserirFAEUI extends javax.swing.JFrame {
 
-    private Utilizador utilizador;
+    private final Exposicao exp;
+    private InserirFAEController iFC;
+    private Utilizador uti;
     
-    private RegistoExposicoes expo;
     
     /**
      * Creates new form teste
+     * @param exp
+     * @param uti
      */
-    public InserirFAEUI() {
-        initComponents();
+    public InserirFAEUI(Exposicao exp, Utilizador uti) {
+            this.uti = uti;
+            this.exp = exp;
+            this.iFC = new InserirFAEController(exp, uti);
+            initComponents();
+            pack();
+            
+    }
+    
+    public void refreshList() { 
+        this.exp.removeAll();
         
     }
 
@@ -95,19 +111,19 @@ public class InserirFAEUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(65, 65, 65)))
+                        .addGap(110, 110, 110)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addGap(65, 65, 65)))
-                                .addGap(110, 110, 110)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(62, 62, 62)
-                                        .addComponent(jLabel2)))))))
+                                .addGap(62, 62, 62)
+                                .addComponent(jLabel2))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -126,8 +142,8 @@ public class InserirFAEUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(31, 31, 31)
-                .addComponent(jButton1)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();
@@ -153,37 +169,7 @@ public class InserirFAEUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JList<String> jList1;
     private javax.swing.JList<String> jList2;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lblDataInicio;
-    private javax.swing.JLabel lblDataInicio1;
-    private javax.swing.JLabel lblDataInicio2;
-    private javax.swing.JLabel lblDataInicio3;
-    private javax.swing.JLabel lblDataInicio4;
-    private javax.swing.JLabel lblDataInicio5;
-    private javax.swing.JLabel lblDescritivo;
-    private javax.swing.JLabel lblDescritivo1;
-    private javax.swing.JLabel lblDescritivo2;
-    private javax.swing.JLabel lblDescritivo3;
-    private javax.swing.JLabel lblDescritivo4;
-    private javax.swing.JLabel lblDescritivo5;
-    private javax.swing.JLabel lblTitulo;
-    private javax.swing.JLabel lblTitulo1;
-    private javax.swing.JLabel lblTitulo2;
-    private javax.swing.JLabel lblTitulo3;
-    private javax.swing.JLabel lblTitulo4;
-    private javax.swing.JLabel lblTitulo5;
-    private javax.swing.JTextField txtTitulo;
-    private javax.swing.JTextField txtTitulo1;
-    private javax.swing.JTextField txtTitulo2;
-    private javax.swing.JTextField txtTitulo3;
-    private javax.swing.JTextField txtTitulo4;
-    private javax.swing.JTextField txtTitulo5;
     // End of variables declaration//GEN-END:variables
 }

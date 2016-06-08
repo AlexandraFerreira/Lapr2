@@ -180,7 +180,7 @@ public class ProdutosUI extends javax.swing.JDialog {
     }//GEN-LAST:event_RemoveProdutoActionPerformed
 
     private void VoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoltarActionPerformed
-                                               
+                                             
         framePai.setVisible(true);
         dispose();
       

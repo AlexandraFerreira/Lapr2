@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author joste
  */
-public class RegistoFAEs {
+public class ListaFAEs {
     /**
      * Lista de FAEs do sistema
     */
@@ -21,7 +21,7 @@ public class RegistoFAEs {
     /**
      * Este construtor cria uma nova lista de FAE's
     */
-    public RegistoFAEs(){
+    public ListaFAEs(){
         listFAE=new ArrayList<>();
     }
     
@@ -31,7 +31,7 @@ public class RegistoFAEs {
      *
      * @param listFAE que guarda uma lista de FAE's
      */
-     public RegistoFAEs(List<FAE> listFAE){
+     public ListaFAEs(List<FAE> listFAE){
         this.listFAE = listFAE;
     }
      
