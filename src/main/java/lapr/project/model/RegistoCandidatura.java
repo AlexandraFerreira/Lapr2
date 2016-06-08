@@ -17,13 +17,13 @@ public class RegistoCandidatura {
     /**
      * Lista de Candidaturas do sistema
      */
-    List<CandidaturaAExposicao> listaCandidaturas;
+    ListaCandidaturas listaCandidaturas;
 
     /**
      * Constrói uma instância de RegistoCandidatura sem parâmetros.
      */
     public RegistoCandidatura() {
-        listaCandidaturas = new ArrayList<>();
+        listaCandidaturas = new ListaCandidaturas();
     }
 
     /**
@@ -64,22 +64,22 @@ public class RegistoCandidatura {
      * contrário devolve null.
      */
     public CandidaturaAExposicao getCandidatura(String id) {
-        for (CandidaturaAExposicao cand : this.listaCandidaturas) {
-            if (cand.getNomeEmp().equals(id)) {
-                return cand;
-            }
-        }
+//        for (CandidaturaAExposicao cand : this.listaCandidaturas) {
+//            if (cand.getNomeEmp().equals(id)) {
+//                return cand;
+//            }
+//        }
 
         return null;
     }
 
     public boolean alteraCandidatura(CandidaturaAExposicao cOriginal, CandidaturaAExposicao cClone) {
         if (cClone.valida()) {
-            List<CandidaturaAExposicao> lstCandidaturas = new ArrayList<CandidaturaAExposicao>(listaCandidaturas);
-            lstCandidaturas.remove(cOriginal);
-            lstCandidaturas.add(cClone);
+            ListaCandidaturas lstCandidaturas = new ListaCandidaturas();
+            lstCandidaturas.removeCandidatura(cOriginal);
+            lstCandidaturas.addCandidatura(cClone);
 
-            if (validaLista(lstCandidaturas)) {
+            if (lstCandidaturas.valida()) {
 
                 cOriginal.setNomeEmp(cClone.getNomeEmp());
                 cOriginal.setMorada(cClone.getMorada());
@@ -90,10 +90,5 @@ public class RegistoCandidatura {
             }
         }
         return false;
-    }
-
-    private boolean validaLista(List<CandidaturaAExposicao> lista) {
-        System.out.println("RegistoCandidatura: validaLista: " + lista.toString());
-        return true;
     }
 }
