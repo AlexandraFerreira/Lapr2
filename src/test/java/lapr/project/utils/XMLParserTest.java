@@ -1,6 +1,6 @@
 package lapr.project.utils;
 
-import lapr.project.model.KeywordExample;
+import lapr.project.model.Keyword;
 import org.custommonkey.xmlunit.XMLUnit;
 import org.junit.Test;
 import org.w3c.dom.Document;
@@ -27,7 +27,7 @@ public class XMLParserTest {
 				+ "<value>Doors</value>\n"
 				+ "</keyword>\n";
 
-		KeywordExample keyword = new KeywordExample("Doors");
+		Keyword keyword = new Keyword("Doors");
 		Node node = keyword.exportContentToXMLNode();
 
 		XMLParser xmlParser = new XMLParser();

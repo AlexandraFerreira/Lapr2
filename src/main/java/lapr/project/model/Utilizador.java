@@ -5,9 +5,24 @@
  */
 package lapr.project.model;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import lapr.project.utils.Exportable;
+import lapr.project.utils.Importable;
 import lapr.project.utils.PasswordValidator;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 /**
  * Classe Utilizador, com finalidade de construção de objectos do tipo
@@ -20,7 +35,16 @@ import lapr.project.utils.PasswordValidator;
  *
  * @author Miguel-PC
  */
-public class Utilizador {
+public class Utilizador implements Importable<Utilizador>, Exportable {
+
+    private CentroExposicoes empresa;
+    private ArrayList<Utilizador> m_utilizadores;
+
+    private static final String ROOT_ELEMENT_NAME = "ListaUtilizadores";
+    private static final String USERNAME_ELEMENT_NAME = "Username";
+    private static final String NOME_ELEMENT_NAME = "Nome";
+    private static final String EMAIL_ELEMENT_NAME = "Email";
+    private static final String PASSWORD_ELEMENT_NAME = "Password";
 
     /**
      * O nome do utilizador.
@@ -273,7 +297,7 @@ public class Utilizador {
      * false.
      */
     public boolean validaPassword(String password) {
-        if(password == null || password.isEmpty() || new PasswordValidator().validate(password) == false){
+        if (password == null || password.isEmpty() || new PasswordValidator().validate(password) == false) {
             return false;
         }
         return true;
@@ -290,15 +314,79 @@ public class Utilizador {
         return validaNome(nome) && validaUsername(userName)
                 && validaPassword(password) && validaEmail(email);
     }
-    
+
     /**
      * Constroi uma instancia cópia do Utilizador.
-     * 
+     *
      * @return cópia do Utilizador
      */
     @Override
     public Utilizador clone() {
         return new Utilizador(this.getNome(), this.getEmail(), this.getUsername(), this.getPassword());
+    }
+
+    @Override
+    public Node exportContentToXMLNode() {
+        return null;
+    }
+
+    @Override
+    public Utilizador importContentFromXMLNode(Node node) {
+
+        try {
+            File fXmlFile = new File("utilizador.xml");
+
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+
+            //Create document builder
+            DocumentBuilder builder = factory.newDocumentBuilder();
+
+            //Obtain a new document
+            //Document document = builder.newDocument();
+            Document document = builder.parse(fXmlFile);
+
+            document.appendChild(document.importNode(node, true));
+
+            NodeList elementsUtilizadores = document.getElementsByTagName(ROOT_ELEMENT_NAME);
+
+            Node elementCandidatura = elementsUtilizadores.item(0);
+
+            //Get description
+            this.userName = elementCandidatura.getFirstChild().getFirstChild().getNodeValue();
+
+            NodeList elementsKeywords = document.getElementsByTagName("Utilizadores");
+
+            NodeList keywords = elementsKeywords.item(0).getChildNodes();
+
+            for (int position = 0; position < keywords.getLength(); position++) {
+
+                Element eElement = (Element) node;
+
+                String username = eElement.getElementsByTagName(USERNAME_ELEMENT_NAME).item(0).getTextContent();
+                String nome = eElement.getElementsByTagName(NOME_ELEMENT_NAME).item(0).getTextContent();
+                String password = eElement.getElementsByTagName(PASSWORD_ELEMENT_NAME).item(0).getTextContent();
+                String email = eElement.getElementsByTagName(EMAIL_ELEMENT_NAME).item(0).getTextContent();
+
+                Utilizador utilizador_xml = new Utilizador(nome, email, username, password);
+
+                m_utilizadores.add(utilizador_xml);
+                empresa.getRegistoUtilizadores().addUtilizador(utilizador_xml);
+
+                System.out.println("Username: " + username);
+
+            }
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+            
+        } catch (SAXException ex) {
+            Logger.getLogger(Utilizador.class.getName()).log(Level.SEVERE, null, ex);
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Utilizador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return this;
     }
 
 }

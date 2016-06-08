@@ -5,19 +5,19 @@
 			<Username>Alex</Username>
 			<Nome>Alexandra</Nome>
 			<Email>1140388@isep.ipp.pt</Email>
-			<Password>pass</Password>
+			<Password>Pa2.</Password>
 		</Utilizador>
 		<Utilizador>
-			<Username>thing@marvel.com</Username>
-			<Nome>The Thing</Nome>
-			<Email>thing@marvel.com</Email>
-			<Password>stony.and.big.123</Password>
+			<Username>Fab</Username>
+			<Nome>Fabio</Nome>
+			<Email>1140613@isep.ipp.pt</Email>
+			<Password>F.a1</Password>
 		</Utilizador>
 		<Utilizador>
-			<Username>elastigirl</Username>
-			<Nome>Helen Parr</Nome>
-			<Email>elastigirl@disney.com</Email>
-			<Password>str-ech</Password>
+			<Username>Mig</Username>
+			<Nome>Miguel</Nome>
+			<Email>1140616@isep.com</Email>
+			<Password>str-E1</Password>
 		</Utilizador>
 	</Utilizadores>
 </ListaUtilizadores>
